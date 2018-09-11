@@ -54,6 +54,3 @@ git pull origin master pour "Mettre à Jour"
 
 
 
-
-
-
