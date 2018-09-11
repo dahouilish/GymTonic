@@ -39,3 +39,21 @@ PAGE ADMIN
 User: mail/nom/password/ID : admin ou client
 
 BASE DE DONNEES
+
+
+-- HOW TO GIT ? --
+
+git status (voir les modifications, affichées en rouge)
+git add <nom_du_fichier> (ou * si il y a plusieurs fichiers à add d'un coup)
+git commit -m "[DBE] Raison du commit"
+git push origin master
+
+git pull origin master pour "Mettre à Jour"
+
+
+
+
+
+
+
+
