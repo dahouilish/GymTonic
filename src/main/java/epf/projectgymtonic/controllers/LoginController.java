@@ -1,9 +1,7 @@
+/*
 package epf.projectgymtonic.controllers;
 
 import epf.projectgymtonic.models.Customer;
-import epf.projectgymtonic.form.LoginForm;
-import epf.projectgymtonic.persistence.CustomerDAO;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,23 +9,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-import java.sql.*;
+public class LoginController {
 
-/**
- * TODO class details.
- *
- * @author David Bernadet on 10/09/2018
- */
-@Controller
-public class CustomersController {
 
-    private final CustomerDAO customerDao;
-
-    public CustomersController(CustomerDAO customerDao) {
-        this.customerDao = customerDao;
-    }
-
-    /*
+    */
+/*
      * Ceci sera mappé sur l'URL '/users'.
      * C'est le routeur de Spring MVC qui va détecter et appeler directement cette méthode.
      * Il lui fournira un "modèle", auquel on pourra rajouter des attributs.
@@ -35,10 +21,11 @@ public class CustomersController {
      * Le nom de la template est retourné par la fonction. Ici, elle appelle donc le template "users".
      * @param model le modèle
      * @return
-     */
+     *//*
+
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String showLoginForm() {
+    public String showLoginForm(Model model) {
         return "login";
     }
 
@@ -53,10 +40,11 @@ public class CustomersController {
         }
     }
 
-    private static ResultSet myDatas() {
-        Properties idConnexion = null;
-        ResultSet result = null;
-
+    @PostMapping(value = "/login")
+    public String verifyLogin(Model model, @RequestParam String mail, @RequestParam String password) {
+        System.out.println("here " + mail + password);
+        */
+/*Properties idConnexion = null;
         try {
             idConnexion = propertiesLoader("application.properties");
         } catch (IOException e) {
@@ -74,64 +62,31 @@ public class CustomersController {
             Statement state = conn.createStatement();
 
             //L'objet ResultSet contient le résultat de la requête SQL
-            result = state.executeQuery("SELECT * FROM customer");
+            ResultSet result = state.executeQuery("SELECT * FROM customer");
 
-            /*while (result.next()) {
-                if (result.getString("mail").equals("admin")) {
+            while (result.next()) {
+                if (result.getString("mail").equals("admin")){
                     System.out.println("THIS IS FUCKING TRUE !!!!!!!!!!!!!!!");
                 }
                 //if (result.getString("").equals(""){
                 //}
-            }*/
+            }
 
             //On récupère les MetaData (structure de la BDD)
-            //ResultSetMetaData resultMeta = result.getMetaData();
+            ResultSetMetaData resultMeta = result.getMetaData();
 
             result.close();
             state.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        return result;
-    }
+        }*//*
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String verifyLogin(@ModelAttribute(name = "loginForm") LoginForm loginForm, Model model) {
 
-        String mail = loginForm.getMail();
-        String password = loginForm.getPassword();
-
-        if ("admin".equals(mail) && "admin".equals(password)) {
+        if (mail.equals("admin") && password.equals("admin")) {
             return "redirect:/customers";
+        } else {
+            return "login";
         }
-        System.out.println("Mail : " + mail + " et password : " + password);
-        model.addAttribute("invalidCredentials", true);
-        //String mail = customer.
-        //System.out.println("here " + mail + password);
-
-
-        return "login";
     }
-
-    @GetMapping("/customers")
-    public String getCustomers(Model model) {
-        model.addAttribute("data", customerDao.findAll());
-        return "customers-list";
-    }
-
-    @GetMapping("/customer")
-    public String addUserForm(Model model) {
-        model.addAttribute("customer", new Customer());
-        return "add_member";
-    }
-
-    @PostMapping("/customer")
-    public String addCustomer(Customer customer, Model model) {
-        customerDao.save(customer);
-        return "redirect:/customers";
-    }
-
-
-}
-
+}*/
