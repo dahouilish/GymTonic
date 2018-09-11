@@ -1,5 +1,5 @@
 #----------------#
-#    GymTonic    #  
+#    GymTonic Lance    #  
 #----------------#
 
 AUTHENTIFICATION
