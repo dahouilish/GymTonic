@@ -10,6 +10,7 @@ import javax.persistence.Id
  * Ici, en l'occurence, un utilisateur.
  * @author Loïc Ortola on 10/09/2018
  * Test Lancelot
+ * Test 2
  */
 @Entity
 data class Customer(@Id @GeneratedValue var id: Int? =  null, var firstName: String? = null, var lastName: String?= null, var password: String?= null, var mail: String?= null) {
