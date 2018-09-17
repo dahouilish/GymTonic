@@ -2,7 +2,7 @@ package epf.projectgymtonic.form;
 
 public class LoginForm {
 
-    private String mail;
+    private String email;
     private String password;
 
     public LoginForm() {
@@ -10,15 +10,15 @@ public class LoginForm {
     }
 
     public String getMail() {
-        return mail;
+        return email;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setPassword(String password) {

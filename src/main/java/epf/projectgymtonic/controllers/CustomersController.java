@@ -53,21 +53,21 @@ public class CustomersController {
         }
     }
 
-    private static ResultSet myDatas() {
-        Properties idConnexion = null;
+    private static ResultSet getMyDatas() {
+/*        Properties idConnexion = null;
+        ResultSet result = null;*/
+
         ResultSet result = null;
 
         try {
-            idConnexion = propertiesLoader("application.properties");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            Properties idConnexion = propertiesLoader("application.properties");
+
+        System.out.println("idConnexion : " + idConnexion);
 
         String dbUrl = idConnexion.getProperty("spring.datasource.url", null);
         String dbUsername = idConnexion.getProperty("spring.datasource.username", null);
         String dbPassword = idConnexion.getProperty("spring.datasource.password", null);
 
-        try {
             Connection conn = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
 
             //Création d'un objet Statement
@@ -87,10 +87,12 @@ public class CustomersController {
             //On récupère les MetaData (structure de la BDD)
             //ResultSetMetaData resultMeta = result.getMetaData();
 
+            System.out.println(result);
+
             result.close();
             state.close();
 
-        } catch (SQLException e) {
+        } catch (SQLException|IOException e) {
             e.printStackTrace();
         }
         return result;
@@ -99,17 +101,20 @@ public class CustomersController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String verifyLogin(@ModelAttribute(name = "loginForm") LoginForm loginForm, Model model) {
 
-        String mail = loginForm.getMail();
+        String email = loginForm.getMail();
         String password = loginForm.getPassword();
 
-        if ("admin".equals(mail) && "admin".equals(password)) {
+        //ResultSet result = getMyDatas();
+        //System.out.println(result);
+
+
+        System.out.println("Email : " + email + " et password : " + password);
+
+        if ("admin".equals(email) && "admin".equals(password)) {
+            System.out.println("JE SUIS PASSE");
             return "redirect:/customers";
         }
-        System.out.println("Mail : " + mail + " et password : " + password);
         model.addAttribute("invalidCredentials", true);
-        //String mail = customer.
-        //System.out.println("here " + mail + password);
-
 
         return "login";
     }
@@ -132,10 +137,12 @@ public class CustomersController {
         return "redirect:/customers";
     }
 
+
     @GetMapping("/accueil")
     public String accueil(){
         return "accueil";
     }
+
 
 }
 

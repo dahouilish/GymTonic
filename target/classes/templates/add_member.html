@@ -40,15 +40,40 @@
                             <div class="col-xs-12">
                                 <form action="#" th:action="@{/customer}" th:object="${customer}" method="post">
                                     <div class="form-group">
-                                        <label for="firstname">Prénom</label>
-                                        <input type="text" class="input-lg form-control" id="firstname"
-                                               th:field="*{firstName}" placeholder="Prénom">
+                                        <label for="firstName">Prénom</label>
+                                        <input type="text" class="input-lg form-control" id="firstName"
+                                               th:field="*{firstName}" placeholder="Prénom" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="surname">Nom</label>
-                                        <input type="text" id="surname" class="input-lg form-control"
-                                               th:field="*{lastName}" placeholder="Nom">
+                                        <label for="lastName">Nom</label>
+                                        <input type="text" id="lastName" class="input-lg form-control"
+                                               th:field="*{lastName}" placeholder="Nom" required>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="mail">Mail</label>
+                                        <input type="email" id="mail" class="input-lg form-control required"
+                                               th:field="*{mail}" placeholder="Mail" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password">Mot de passe</label>
+                                        <input type="password" id="password" class="input-lg form-control"
+                                               th:field="*{password}" placeholder="Mot de passe" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="date">Date</label>
+                                        <input type="date" id="date" class="input-lg form-control"
+                                               th:field="*{date}" placeholder="Date" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Sexe</label>
+                                        <SELECT name="gender" size="1">
+                                            <OPTION>Monsieur</OPTION>
+                                            <OPTION>Madame</OPTION>
+                                        </SELECT>
+
+                                    </div>
+
                                     <div class="text-right">
                                         <button type="submit" class="btn btn-lg btn-primary">Enregistrer</button>
                                     </div>
