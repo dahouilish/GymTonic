@@ -132,6 +132,10 @@ public class CustomersController {
         return "redirect:/customers";
     }
 
+    @GetMapping("/accueil")
+    public String accueil(){
+        return "accueil";
+    }
 
 }
 

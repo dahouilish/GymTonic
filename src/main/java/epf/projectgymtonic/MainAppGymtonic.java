@@ -32,10 +32,10 @@ public class MainAppGymtonic {
     @PostConstruct
     public void init() {
         customerDao.deleteAll();
-        customerDao.save(new Customer(null,"Loic", "Ortola", "test", "monMail"));
-        customerDao.save(new Customer(null, "Ambroise", "Soullier", "test", "monMail"));
-        customerDao.save(new Customer(null, "Harry", "Covert", "test", "monMail"));
+        customerDao.save(new Customer(null,"Loic", "Ortola","loic@hotmail.fr","mypass","hello","Monsieur"));
+        customerDao.save(new Customer(null, "Ambroise", "Soullier","ambroise@gmail.com","12345","le23","Madame"));
+        customerDao.save(new Customer(null, "Harry", "Covert","harry.cover@outlook.fr","azerty","le12","Monsieur"));
         /**ADMIN*/
-        customerDao.save(new Customer(null, "admin", "admin", "admin", "admin"));
+        customerDao.save(new Customer(null, "admin", "admin", "admin", "admin", "admin", "admin"));
     }
 }
