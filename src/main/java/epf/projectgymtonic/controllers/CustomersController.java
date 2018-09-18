@@ -91,7 +91,7 @@ public class CustomersController {
                 case 1:
                     return "redirect:/customerPage";
                 case 2:
-                    return "redirect:/inscription";
+                    return "redirect:/adminPage";
                 default:
                     System.out.println("Cas par defaut du switch");
                     return "redirect:/";
@@ -117,6 +117,7 @@ public class CustomersController {
         model.addAttribute("customer", new Customer());
         if (LoginForm.getMail() != null) {
             displayAlertMessage("Vous êtes déjà inscrit !");
+            System.out.println("LE MAIL ENTRE EST : " + LoginForm.getMail());
             return "redirect:/";
         }
         return "add_member";
@@ -149,14 +150,15 @@ public class CustomersController {
         //Afficher
         model.addAttribute("c", c);
         //Afficher liste entiere :
-        model.addAttribute("data", customerDao.findAll());
+        //model.addAttribute("data", customerDao.findAll());
 
         return "customer_page";
     }
 
     @GetMapping("/adminPage")
-    public String displayAdminPage() {
-        return "adminPage";
+    public String displayAdminPage(Model model) {
+        model.addAttribute("data", customerDao.findAll());
+        return "admin_page";
     }
 
     private void displayAlertMessage(String message) {
