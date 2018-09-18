@@ -12,7 +12,7 @@ import javax.persistence.Id
  */
 
 @Entity
-data class Customer(@Id @GeneratedValue var id: Int? =  null, var firstName: String? = null, var lastName: String?= null, var mail: String? = null, var password: String? = null, var date: String? = null, var gender: String? = null) {
+data class Customer(@Id @GeneratedValue var id: Int? =  null, var firstName: String? = null, var lastName: String?= null, var mail: String? = null, var password: String? = null, var date: String? = null, var gender: String? = null, var role: Int? = 1) {
 }
 
 //TODO mail different : verifier lors de l'inscription que le mail entré n'est pas dans la base de donnée

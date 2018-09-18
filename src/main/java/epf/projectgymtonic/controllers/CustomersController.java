@@ -42,80 +42,44 @@ public class CustomersController {
         return "login";
     }
 
-    private static Properties propertiesLoader(String filename) throws IOException {
-        Properties properties = new Properties();
-        FileInputStream input = new FileInputStream(filename);
-        try {
-            properties.load(input);
-            return properties;
-        } finally {
-            input.close();
-        }
-    }
-
-    private static ResultSet getMyDatas() {
-/*        Properties idConnexion = null;
-        ResultSet result = null;*/
-
-        ResultSet result = null;
-
-        try {
-            Properties idConnexion = propertiesLoader("application.properties");
-
-        System.out.println("idConnexion : " + idConnexion);
-
-        String dbUrl = idConnexion.getProperty("spring.datasource.url", null);
-        String dbUsername = idConnexion.getProperty("spring.datasource.username", null);
-        String dbPassword = idConnexion.getProperty("spring.datasource.password", null);
-
-            Connection conn = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
-
-            //Création d'un objet Statement
-            Statement state = conn.createStatement();
-
-            //L'objet ResultSet contient le résultat de la requête SQL
-            result = state.executeQuery("SELECT * FROM customer");
-
-            /*while (result.next()) {
-                if (result.getString("mail").equals("admin")) {
-                    System.out.println("THIS IS FUCKING TRUE !!!!!!!!!!!!!!!");
-                }
-                //if (result.getString("").equals(""){
-                //}
-            }*/
-
-            //On récupère les MetaData (structure de la BDD)
-            //ResultSetMetaData resultMeta = result.getMetaData();
-
-            System.out.println(result);
-
-            result.close();
-            state.close();
-
-        } catch (SQLException|IOException e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
-
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String verifyLogin(@ModelAttribute(name = "loginForm") LoginForm loginForm, Model model) {
 
+        //On recupere les valeurs des input du formulaire login
         String email = loginForm.getMail();
         String password = loginForm.getPassword();
 
-        //ResultSet result = getMyDatas();
-        //System.out.println(result);
+        //optionnel : recuperer les valeurs dans la BDD
+        //TODO dans CustomerDAO
+        Customer currentCustomer = customerDao.findByEmailAddress(email);
 
+        System.out.println("CurrentCustomer : " + currentCustomer);
 
-        System.out.println("Email : " + email + " et password : " + password);
+        String currentMail = currentCustomer.getMail();
+        String currentPassword = currentCustomer.getPassword();
 
-        if ("admin".equals(email) && "admin".equals(password)) {
+        //LOGGER
+        System.out.println("CurrentCustomer mail : " + currentMail + " PWD : " + currentPassword);
+
+        //LOGGER
+        System.out.println("INPUT : Email : " + email + " et password : " + password);
+
+        // Test de connexion : si = admin ,alors success
+        if (currentMail.equals(email) && currentPassword.equals(password)) {
             System.out.println("JE SUIS PASSE");
-            return "redirect:/customers";
+            switch (currentCustomer.getRole()){
+                case 1:
+                    return "redirect:/customers";
+                case 2:
+                    return "redirect:/customer";
+                default:
+                    return "redirect:/customers";
+            }
+
         }
         model.addAttribute("invalidCredentials", true);
-
+        System.out.println("PAS CETTE FOIS");
+        // si failure, rester sur la page login
         return "login";
     }
 
@@ -139,7 +103,7 @@ public class CustomersController {
 
 
     @GetMapping("/accueil")
-    public String accueil(){
+    public String accueil() {
         return "accueil";
     }
 

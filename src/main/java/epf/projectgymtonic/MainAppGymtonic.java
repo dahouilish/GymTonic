@@ -31,11 +31,11 @@ public class MainAppGymtonic {
      */
     @PostConstruct
     public void init() {
-        customerDao.deleteAll();
-        customerDao.save(new Customer(null,"Loic", "Ortola","loic@hotmail.fr","mypass","hello","Monsieur"));
-        customerDao.save(new Customer(null, "Ambroise", "Soullier","ambroise@gmail.com","12345","le23","Madame"));
-        customerDao.save(new Customer(null, "Harry", "Covert","harry.cover@outlook.fr","azerty","le12","Monsieur"));
+        customerDao.deleteAll();//TODO supprimer cette ligne à la fin
+        customerDao.save(new Customer(null,"David", "Bernadet","david.bernadet@yahoo.fr","david","1996-03-02","Monsieur", 1));
+        customerDao.save(new Customer(null, "Romain", "Cogen","romain.cogen@epfedu.fr","romain","1996-12-24","Monsieur", 1));
+        customerDao.save(new Customer(null, "Lancelot", "Du Lac","lancelot.dulac@epfedu.fr","lance","1996-05-14","Monsieur", 1));
         /**ADMIN*/
-        customerDao.save(new Customer(null, "admin", "admin", "admin", "admin", "admin", "admin"));
+        customerDao.save(new Customer(null, "admin", "admin", "admin", "admin", "admin", "admin", 2));
     }
 }
