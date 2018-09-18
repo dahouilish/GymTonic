@@ -52,7 +52,7 @@ public class CustomersController {
         Customer currentCustomer = customerDao.findCustomerByMail(email);
 
         if (currentCustomer == null){
-            alert("L'adresse mail est invalide");
+//            alert("L'adresse mail est invalide");
             System.out.println("USER INCONNU DE LA BDD : FAILURE !");
             return "login";
         }
