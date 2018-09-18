@@ -36,7 +36,7 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li><a th:href="@{/}">Accueil</a></li>
-                <li class="active"><a th:href="@{/customerPage}">Page perso</a></li>
+                <li class="active"><a th:href="@{/adminPage}">Page admin</a></li>
                 <li><a th:href="@{/inscription}">Inscription</a></li>
                 <li><a th:href="@{/login}">Se connecter</a></li>
 
@@ -64,6 +64,7 @@
 
                                 <table class="table table-bordered table-striped table-condensed">
                                     <tr>
+                                        <th>id</th>
                                         <th>firstName</th>
                                         <th>lastName</th>
                                         <th>mail</th>
@@ -71,15 +72,18 @@
                                         <th>date</th>
                                         <th>gender</th>
                                     </tr>
-                                    <tr>
-                                        <td th:text="${c.firstName}"></td>
-                                        <td th:text="${c.lastName}"></td>
-                                        <td th:text="${c.mail}"></td>
-                                        <td th:text="${c.password}"></td>
-                                        <td th:text="${c.date}"></td>
-                                        <td th:text="${c.gender}"></td>
+                                    <tr th:each="user : ${data}">
+                                        <td th:text="${user.id}"></td>
+                                        <td th:text="${user.firstName}"></td>
+                                        <td th:text="${user.lastName}"></td>
+                                        <td th:text="${user.mail}"></td>
+                                        <td th:text="${user.password}"></td>
+                                        <td th:text="${user.date}"></td>
+                                        <td th:text="${user.gender}"></td>
+
                                     </tr>
                                 </table>
+
                             </div>
                         </div>
                         <!-- /.row -->
