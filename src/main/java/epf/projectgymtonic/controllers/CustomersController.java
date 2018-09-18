@@ -41,6 +41,22 @@ public class CustomersController {
         return "login";
     }
 
+    //TODO : afficher slmt si connecté !
+    @GetMapping(value = "/exit")
+    public String exit(@ModelAttribute(name = "loginForm") LoginForm loginForm, Model model) {
+        Customer currentCustomer = customerDao.findCustomerByMail(LoginForm.getMail());
+        System.out.println("le gus est : " + LoginForm.getMail());
+        //System.out.println("le gus est : " + currentCustomer.getAuthenticated());
+        //currentCustomer.setAuthenticated(false);
+        //System.out.println("le gus est : " + currentCustomer.getAuthenticated());
+
+        loginForm.setEmail(null);
+        loginForm.setPassword(null);
+        displayAlertMessage("Vous vous êtes déconnecté !");
+        //customerDao.deleteAll();
+        return "redirect:/";
+    }
+
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String verifyLogin(@ModelAttribute(name = "loginForm") LoginForm loginForm, Model model) {
 
@@ -50,14 +66,15 @@ public class CustomersController {
         //Recuperation du customer correspondant au mail
         Customer currentCustomer = customerDao.findCustomerByMail(email);
 
-        System.out.println("CurrentCustomer LOGGED IN ? : " + currentCustomer.getAuthenticated());
-        currentCustomer.setAuthenticated(true);
-        System.out.println("CurrentCustomer LOGGED IN ? : " + currentCustomer.getAuthenticated());
         if (currentCustomer == null) {
             System.out.println("USER INCONNU DE LA BDD : FAILURE !");
             displayAlertMessage("L'adresse mail et/ou le mot de passe est invalide");
             return "login";
         }
+        /*System.out.println("CurrentCustomer LOGGED IN ? : " + currentCustomer.getAuthenticated());
+        currentCustomer.setAuthenticated(true);
+        System.out.println("CurrentCustomer LOGGED IN ? : " + currentCustomer.getAuthenticated());*/
+
         System.out.println("CurrentCustomer : " + currentCustomer);
 
         String currentMail = currentCustomer.getMail();
@@ -98,6 +115,10 @@ public class CustomersController {
     @GetMapping("/inscription")
     public String addUserForm(Model model) {
         model.addAttribute("customer", new Customer());
+        if (LoginForm.getMail() != null) {
+            displayAlertMessage("Vous êtes déjà inscrit !");
+            return "redirect:/";
+        }
         return "add_member";
     }
 
