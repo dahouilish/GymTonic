@@ -7,7 +7,11 @@ html {
   height: 100%; }
 
 body {
-  height: 100%; }
+  height: auto;
+      background-image:  linear-gradient(rgba(0, 0, 255, 0.4), rgba(255, 255, 0, 0.4)), url("../img/salle.jpg");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;}
   body #wrapper {
     min-height: 100%;
     margin-bottom: -90px; }

@@ -2,16 +2,10 @@
   margin: 0;
   padding: 0;
   outline: none; }
-
 html {
   height: 100%; }
-
 body {
-  height: auto;
-      background-image:  linear-gradient(rgba(0, 0, 255, 0.4), rgba(255, 255, 0, 0.4)), url("../img/salle.jpg");
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;}
+  height: 100%; }
   body #wrapper {
     min-height: 100%;
     margin-bottom: -90px; }
@@ -59,5 +53,3 @@ body {
     padding: 20px; }
     body .footer .logo {
       height: 40px; }
-
-/*# sourceMappingURL=style.css.map */

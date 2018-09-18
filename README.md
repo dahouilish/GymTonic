@@ -50,6 +50,9 @@ git push origin master
 
 git pull origin master pour "Mettre à Jour"
 
+ATTENTION !
+une fois loginé, on stock le mail du gus en cours pour aller chercher ses parametres directement de la BDD;
+
 
 TODO David :
 
