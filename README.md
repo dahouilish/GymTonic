@@ -56,18 +56,24 @@ une fois loginé, on stock le mail du gus en cours pour aller chercher ses param
 
 TODO David :
 
-Recuperer identifiants de la BDD
-Puis empecher mail en double lors de l'inscription
+//Recuperer identifiants de la BDD
+Empecher acces URL si non connecté
+Puis creation de programmes (formulaire)
 
 TODO Lancelot :
 
 Page d'accueil
+CustomerPage : Mise en page, affichage données
 
 
 TODO Romain : 
 
-CustomerPage : Mise en page, affichage données
-Puis creation de programmes (formulaire)
+Empecher acces URL si non connecté
+faire liens entre pages
+
+
+
+
 
 
 
