@@ -7,12 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
-
-import java.sql.*;
-
 /**
  * TODO class details.
  *
@@ -53,23 +47,27 @@ public class CustomersController {
         //TODO dans CustomerDAO
         Customer currentCustomer = customerDao.findCustomerByMail(email);
 
+        if (currentCustomer == null){
+            System.out.println("USER INCONNU DE LA BDD : FAILURE !");
+            return "login";
+        }
         System.out.println("CurrentCustomer : " + currentCustomer);
 
         String currentMail = currentCustomer.getMail();
         String currentPassword = currentCustomer.getPassword();
 
         //LOGGER
-        System.out.println("CurrentCustomer mail : " + currentMail + " PWD : " + currentPassword);
+        //System.out.println("CurrentCustomer mail : " + currentMail + " PWD : " + currentPassword);
 
         //LOGGER
-        System.out.println("INPUT : Email : " + email + " et password : " + password);
+        //System.out.println("INPUT : Email : " + email + " et password : " + password);
 
         // Test de connexion : si = admin ,alors success
         if (currentMail.equals(email) && currentPassword.equals(password)) {
-            System.out.println("JE SUIS PASSE");
+            System.out.println("USER RECONNU DANS LA BDD : SUCCESS !");
             switch (currentCustomer.getRole()){
                 case 1:
-                    return "redirect:/customers";
+                    return "redirect:/customerPage";
                 case 2:
                     return "redirect:/customer";
                 default:
@@ -78,7 +76,7 @@ public class CustomersController {
 
         }
         model.addAttribute("invalidCredentials", true);
-        System.out.println("PAS CETTE FOIS");
+        System.out.println("PASSWORD DOESN'T MATCH : FAILURE !");
         // si failure, rester sur la page login
         return "login";
     }
@@ -110,6 +108,7 @@ public class CustomersController {
     public String displayCustomerPage(Model model){
 
         String m = LoginForm.getMail();
+        System.out.println("mail : " + m);
         Customer c = customerDao.findCustomerByMail(m);
 
         model.addAttribute("c", c);

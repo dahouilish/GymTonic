@@ -2,14 +2,14 @@ package epf.projectgymtonic.form;
 
 public class LoginForm {
 
-    private String email;
+    private static String email;
     private String password;
 
     public LoginForm() {
         super();
     }
 
-    public String getMail() {
+    public static String getMail() {
         return email;
     }
 
