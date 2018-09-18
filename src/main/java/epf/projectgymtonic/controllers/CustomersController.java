@@ -7,6 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.*;
+
+import static javax.swing.JOptionPane.showMessageDialog;
+
 /**
  * TODO class details.
  *
@@ -48,6 +52,7 @@ public class CustomersController {
         Customer currentCustomer = customerDao.findCustomerByMail(email);
 
         if (currentCustomer == null){
+            alert("L'adresse mail est invalide");
             System.out.println("USER INCONNU DE LA BDD : FAILURE !");
             return "login";
         }
