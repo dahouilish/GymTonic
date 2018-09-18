@@ -3,12 +3,10 @@ package epf.projectgymtonic;
 import epf.projectgymtonic.models.Customer;
 import epf.projectgymtonic.persistence.CustomerDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-
 import javax.annotation.PostConstruct;
 
 @SpringBootApplication
@@ -36,11 +34,10 @@ public class MainAppGymtonic {
     @PostConstruct
     public void init() {
         customerDao.deleteAll();//TODO supprimer cette ligne à la fin
-        customerDao.save(new Customer(null,"David", "Bernadet","david.bernadet@yahoo.fr","david","1996-03-02","Monsieur", 1));
-        customerDao.save(new Customer(null, "Romain", "Cogen","romain.cogen@epfedu.fr","romain","1996-12-24","Monsieur", 1));
-        customerDao.save(new Customer(null, "Lancelot", "Du Lac","lancelot.dulac@epfedu.fr","lance","1996-05-14","Monsieur", 1));
+        customerDao.save(new Customer(null,"David", "Bernadet","david.bernadet@yahoo.fr","david","1996-03-02","Monsieur", 1, false));
+        customerDao.save(new Customer(null, "Romain", "Cogen","romain.cogen@epfedu.fr","romain","1996-12-24","Monsieur", 1, false));
+        customerDao.save(new Customer(null, "Lancelot", "Du Lac","lancelot.dulac@epfedu.fr","lance","1996-05-14","Monsieur", 1, false));
         /**ADMIN*/
-        customerDao.save(new Customer(null, "admin", "admin", "admin", "admin", "admin", "admin", 2));
-        //System.out.println("INITIALISATION");
+        customerDao.save(new Customer(null, "admin", "admin", "admin", "admin", "admin", "admin", 2, false));
     }
 }

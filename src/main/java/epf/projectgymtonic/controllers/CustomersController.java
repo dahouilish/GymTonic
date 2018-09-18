@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.swing.*;
 
 /**
- * TODO class details.
- *
- * @author David Bernadet on 10/09/2018
+ * @author David Bernadet, Romain Cogen, Lancelot Deguerre on 10/09/2018
  */
 @Controller
 public class CustomersController {
@@ -35,22 +33,27 @@ public class CustomersController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String showLoginForm() {
+        if (LoginForm.getMail() != null) {
+            displayAlertMessage("Vous etes déjà connecté");
+            return "redirect:/";
+        }
+        displayAlertMessage("Vous n'etes pas encore connecté");
         return "login";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String verifyLogin(@ModelAttribute(name = "loginForm") LoginForm loginForm, Model model) {
 
-        //On recupere les valeurs des input du formulaire login
+        //Recuperation des valeurs des input du formulaire login
         String email = loginForm.getMail();
         String password = loginForm.getPassword();
-
-        //optionnel : recuperer les valeurs dans la BDD
-        //TODO dans CustomerDAO
+        //Recuperation du customer correspondant au mail
         Customer currentCustomer = customerDao.findCustomerByMail(email);
 
-        if (currentCustomer == null){
-//            alert("L'adresse mail est invalide");
+        System.out.println("CurrentCustomer LOGGED IN ? : " + currentCustomer.getAuthenticated());
+        currentCustomer.setAuthenticated(true);
+        System.out.println("CurrentCustomer LOGGED IN ? : " + currentCustomer.getAuthenticated());
+        if (currentCustomer == null) {
             System.out.println("USER INCONNU DE LA BDD : FAILURE !");
             displayAlertMessage("L'adresse mail et/ou le mot de passe est invalide");
             return "login";
@@ -62,8 +65,6 @@ public class CustomersController {
 
         //LOGGER
         //System.out.println("CurrentCustomer mail : " + currentMail + " PWD : " + currentPassword);
-
-        //LOGGER
         //System.out.println("INPUT : Email : " + email + " et password : " + password);
 
         // Test de connexion : si = admin ,alors success
@@ -73,9 +74,10 @@ public class CustomersController {
                 case 1:
                     return "redirect:/customerPage";
                 case 2:
-                    return "redirect:/customer";
+                    return "redirect:/inscription";
                 default:
-                    return "redirect:/customers";
+                    System.out.println("Cas par defaut du switch");
+                    return "redirect:/";
             }
 
         }
@@ -87,25 +89,25 @@ public class CustomersController {
     }
 
     //TODO : supprimer ce WS et ajouter le html correspondant à la page des Customers
-    @GetMapping("/customers")
+    /*@GetMapping("/customers")
     public String getCustomers(Model model) {
         model.addAttribute("data", customerDao.findAll());
         return "customers-list";
-    }
+    }*/
 
-    @GetMapping("/customer")
+    @GetMapping("/inscription")
     public String addUserForm(Model model) {
         model.addAttribute("customer", new Customer());
         return "add_member";
     }
 
-    @PostMapping("/customer")
+    @PostMapping("/inscription")
     public String addCustomer(Customer customer, Model model) {
         System.out.println("LE MAIL ENTRE EST : " + customer.getMail());
         //In case the mail is already used
         if (customerDao.findCustomerByMail(customer.getMail()) != null) {
             displayAlertMessage("L'adresse mail est déjà utilisée.");
-            return "redirect:/customer";
+            return "redirect:/inscription";
         }
         customerDao.save(customer);
         return "redirect:/customerPage";
@@ -116,11 +118,11 @@ public class CustomersController {
 
         String m = LoginForm.getMail();
 
-        if (m == null){
+        if (m == null) {
             displayAlertMessage("VOUS TENTEZ D'ACCEDER A UNE PAGE NON AUTORISEE");
             return "redirect:/login";
         }
-        System.out.println("mail : " + m);
+        //System.out.println("mail : " + m);
         Customer c = customerDao.findCustomerByMail(m);
 
         //Afficher

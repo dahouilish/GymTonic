@@ -26,8 +26,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
+                <li class="active"><a th:href="@{/}">Accueil</a></li>
+                <li><a th:href="@{/customerPage}">Page perso</a></li>
+                <li><a th:href="@{/inscription}">Inscription</a></li>
                 <li><a th:href="@{/login}">Se connecter</a></li>
 
             </ul>
@@ -40,7 +41,7 @@
         <h1>Bouge ton boule avec GYM TONIC !</h1>
         <p class="lead">Viens te dépenser chez nous, c'est lourd !<br> L'aventure va commencer now</p>
         &nbsp;
-        <p class="lead"><a th:href="@{/customer}"> Inscription </a></p>
+        <p class="lead"><a th:href="@{/inscription}"> Inscription </a></p>
     </div>
 </div><!-- /.container -->
 <!-- Bootstrap core JavaScript

@@ -21,6 +21,29 @@
 </head>
 
 <body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"> <img alt="logo" src="https://pbs.twimg.com/profile_images/419865912716443649/nCWaixZb.png"></a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a th:href="@{/}">Accueil</a></li>
+                <li class="active"><a th:href="@{/customerPage}">Page perso</a></li>
+                <li><a th:href="@{/inscription}">Inscription</a></li>
+                <li><a th:href="@{/login}">Se connecter</a></li>
+
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
 <div id="wrapper">
 
     <div id="page-wrapper" class="container-fluid">
