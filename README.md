@@ -1,4 +1,4 @@
-#----------------#
+﻿#----------------#
 #    GymTonic Lance    #  
 #----------------#
 
@@ -51,6 +51,20 @@ git push origin master
 git pull origin master pour "Mettre à Jour"
 
 
+TODO David :
+
+Recuperer identifiants de la BDD
+Puis empecher mail en double lors de l'inscription
+
+TODO Lancelot :
+
+Page d'accueil
+
+
+TODO Romain : 
+
+CustomerPage : Mise en page, affichage données
+Puis creation de programmes (formulaire)
 
 
 

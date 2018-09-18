@@ -51,7 +51,7 @@ public class CustomersController {
 
         //optionnel : recuperer les valeurs dans la BDD
         //TODO dans CustomerDAO
-        Customer currentCustomer = customerDao.findByEmailAddress(email);
+        Customer currentCustomer = customerDao.findCustomerByMail(email);
 
         System.out.println("CurrentCustomer : " + currentCustomer);
 
@@ -101,10 +101,25 @@ public class CustomersController {
         return "redirect:/customers";
     }
 
-
     @GetMapping("/accueil")
     public String accueil() {
         return "accueil";
+    }
+
+    @GetMapping("/customerPage")
+    public String displayCustomerPage(Model model){
+
+        String m = LoginForm.getMail();
+        Customer c = customerDao.findCustomerByMail(m);
+
+        model.addAttribute("c", c);
+
+        return "customer_page";
+    }
+
+    @GetMapping("/adminPage")
+    public String displayAdminPage(){
+        return "adminPage";
     }
 
 

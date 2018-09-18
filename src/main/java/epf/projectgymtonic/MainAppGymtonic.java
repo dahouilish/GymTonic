@@ -35,6 +35,7 @@ public class MainAppGymtonic {
         customerDao.save(new Customer(null,"David", "Bernadet","david.bernadet@yahoo.fr","david","1996-03-02","Monsieur", 1));
         customerDao.save(new Customer(null, "Romain", "Cogen","romain.cogen@epfedu.fr","romain","1996-12-24","Monsieur", 1));
         customerDao.save(new Customer(null, "Lancelot", "Du Lac","lancelot.dulac@epfedu.fr","lance","1996-05-14","Monsieur", 1));
+
         /**ADMIN*/
         customerDao.save(new Customer(null, "admin", "admin", "admin", "admin", "admin", "admin", 2));
     }
