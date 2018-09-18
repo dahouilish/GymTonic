@@ -1,8 +1,12 @@
 package epf.projectgymtonic.persistence;
 
+import epf.projectgymtonic.form.LoginForm;
 import epf.projectgymtonic.models.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +19,8 @@ import org.springframework.stereotype.Service;
 @Repository
 public interface CustomerDAO extends JpaRepository<Customer, Integer> {
 
-    @Query("SELECT c FROM Customer c WHERE c.mail = ?1")
-    Customer findByEmailAddress(String mail);
+    @Query("SELECT c FROM Customer c WHERE c.mail = :Mail")
+    Customer findCustomerByMail(@Param("Mail") String Mail);
+
 }
 
