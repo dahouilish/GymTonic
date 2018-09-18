@@ -5,6 +5,8 @@ import epf.projectgymtonic.persistence.CustomerDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import javax.annotation.PostConstruct;
@@ -22,7 +24,9 @@ public class MainAppGymtonic {
         // Il va aller "regarder" nos classes et détecter les annotations des singletons
         // (@Controller, @Repository, @Component, @Service, etc...)
         // Ensuite, il va construire l'arbre de dépendances et le résoudre en injectant les données dans les bonnes classes
-        SpringApplication.run(MainAppGymtonic.class);
+        SpringApplicationBuilder builder = new SpringApplicationBuilder(MainAppGymtonic.class);
+        builder.headless(false);
+        ConfigurableApplicationContext context = builder.run(args);
     }
 
     /**
@@ -35,8 +39,8 @@ public class MainAppGymtonic {
         customerDao.save(new Customer(null,"David", "Bernadet","david.bernadet@yahoo.fr","david","1996-03-02","Monsieur", 1));
         customerDao.save(new Customer(null, "Romain", "Cogen","romain.cogen@epfedu.fr","romain","1996-12-24","Monsieur", 1));
         customerDao.save(new Customer(null, "Lancelot", "Du Lac","lancelot.dulac@epfedu.fr","lance","1996-05-14","Monsieur", 1));
-
         /**ADMIN*/
         customerDao.save(new Customer(null, "admin", "admin", "admin", "admin", "admin", "admin", 2));
+        //System.out.println("INITIALISATION");
     }
 }

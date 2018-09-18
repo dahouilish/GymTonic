@@ -50,13 +50,31 @@
                                         <th>gender</th>
                                     </tr>
                                     <tr>
-                                        <td th:text="${c.id}"></td>
                                         <td th:text="${c.firstName}"></td>
                                         <td th:text="${c.lastName}"></td>
                                         <td th:text="${c.mail}"></td>
                                         <td th:text="${c.password}"></td>
                                         <td th:text="${c.date}"></td>
                                         <td th:text="${c.gender}"></td>
+                                    </tr>
+                                </table>
+
+                                <table>
+                                    <tr>
+                                        <th>id</th>
+                                        <th>firstName</th>
+                                        <th>lastName</th>
+                                    </tr>
+                                    <tr th:each="user : ${data}">
+                                        <td th:text="${user.id}"></td>
+                                        <td th:text="${user.firstName}"></td>
+                                        <td th:text="${user.lastName}"></td>
+                                        <td th:text="${user.mail}"></td>
+                                        <td th:text="${user.password}"></td>
+                                        <td th:text="${user.date}"></td>
+                                        <td th:text="${user.gender}"></td>
+                                        <td th:int="${user.role}"></td>
+
                                     </tr>
                                 </table>
 

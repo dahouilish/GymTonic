@@ -19,5 +19,8 @@ public interface CustomerDAO extends JpaRepository<Customer, Integer>{
     @Query("SELECT c FROM Customer c WHERE c.mail = :Mail")
     Customer findCustomerByMail(@Param("Mail") String Mail);
 
+    //@Query("SELECT c FROM Customer c WHERE c.mail = :Mail")
+    //Customer findMailAlreadyUsed(@Param("Mail") String Mail);
+
 }
 
