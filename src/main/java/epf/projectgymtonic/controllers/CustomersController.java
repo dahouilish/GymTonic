@@ -16,6 +16,8 @@ import javax.swing.*;
 public class CustomersController {
 
     private final CustomerDAO customerDao;
+    //private boolean test = false;
+    //private String currentMail;
 
     public CustomersController(CustomerDAO customerDao) {
         this.customerDao = customerDao;
@@ -69,6 +71,8 @@ public class CustomersController {
         if (currentCustomer == null) {
             System.out.println("USER INCONNU DE LA BDD : FAILURE !");
             displayAlertMessage("L'adresse mail et/ou le mot de passe est invalide");
+            loginForm.setEmail(null);
+            loginForm.setPassword(null);
             return "login";
         }
         /*System.out.println("CurrentCustomer LOGGED IN ? : " + currentCustomer.getAuthenticated());
@@ -98,7 +102,7 @@ public class CustomersController {
             }
 
         }
-        model.addAttribute("invalidCredentials", true);
+        //model.addAttribute("invalidCredentials", true);
         System.out.println("PASSWORD DOESN'T MATCH : FAILURE !");
         displayAlertMessage("L'adresse mail et/ou le mot de passe est invalide");
         // si failure, rester sur la page login
@@ -132,19 +136,26 @@ public class CustomersController {
             return "redirect:/inscription";
         }
         customerDao.save(customer);
-        return "redirect:/customerPage";
+        //test = true;
+        //currentMail = customer.getMail();
+        displayAlertMessage("Vous êtes inscrit, bienvenue " + customer.getFirstName() + " !");
+        //TODO : si on veut rediriger directement sur customerPage, il faudra set mail et pwd de loginForm (static...)
+        //OU PAS ! ducon va , pointe juste sur login apres inscription et c good
+        return "redirect:/login";
     }
 
     @GetMapping("/customerPage")
     public String displayCustomerPage(Model model) {
 
         String m = LoginForm.getMail();
-
-        if (m == null) {
+        //System.out.println("mail : " + m);
+        if (m == null){ //&& test == false) {
+            //m = currentMail;
             displayAlertMessage("VOUS TENTEZ D'ACCEDER A UNE PAGE NON AUTORISEE");
             return "redirect:/login";
         }
         //System.out.println("mail : " + m);
+        //test = false;
         Customer c = customerDao.findCustomerByMail(m);
 
         //Afficher
