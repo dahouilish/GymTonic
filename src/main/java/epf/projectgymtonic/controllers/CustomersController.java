@@ -51,6 +51,10 @@ public class CustomersController {
         //System.out.println("le gus est : " + currentCustomer.getAuthenticated());
         //currentCustomer.setAuthenticated(false);
         //System.out.println("le gus est : " + currentCustomer.getAuthenticated());
+        if (LoginForm.getMail() == null){
+            displayAlertMessage("Vous n'etes pas encore connecté");
+            return "redirect:/";
+        }
 
         loginForm.setEmail(null);
         loginForm.setPassword(null);
