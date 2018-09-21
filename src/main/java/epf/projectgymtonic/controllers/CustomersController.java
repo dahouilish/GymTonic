@@ -46,11 +46,7 @@ public class CustomersController {
     //TODO : afficher slmt si connecté !
     @GetMapping(value = "/exit")
     public String exit(@ModelAttribute(name = "loginForm") LoginForm loginForm, Model model) {
-        if (LoginForm.getMail() == null){
-            displayAlertMessage("Vous n'êtes pas connecté !");
-            return "redirect:/";
-        }
-            Customer currentCustomer = customerDao.findCustomerByMail(LoginForm.getMail());
+        Customer currentCustomer = customerDao.findCustomerByMail(LoginForm.getMail());
         System.out.println("le gus est : " + LoginForm.getMail());
         //System.out.println("le gus est : " + currentCustomer.getAuthenticated());
         //currentCustomer.setAuthenticated(false);
