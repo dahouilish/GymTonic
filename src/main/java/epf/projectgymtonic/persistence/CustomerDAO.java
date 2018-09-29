@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 @Repository
 public interface CustomerDAO extends JpaRepository<Customer, Integer>{
 
-    @Query("SELECT c FROM Customer c WHERE c.mail = :Mail")
+    @Query("SELECT customer FROM Customer customer WHERE customer.mail = :Mail")
     Customer findCustomerByMail(@Param("Mail") String Mail);
 
     //@Query("SELECT c FROM Customer c WHERE c.mail = :Mail")

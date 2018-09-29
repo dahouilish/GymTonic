@@ -2,7 +2,9 @@ package epf.projectgymtonic.controllers;
 
 import epf.projectgymtonic.models.Customer;
 import epf.projectgymtonic.form.LoginForm;
+import epf.projectgymtonic.models.Program;
 import epf.projectgymtonic.persistence.CustomerDAO;
+import epf.projectgymtonic.persistence.ProgramDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +18,13 @@ import javax.swing.*;
 public class CustomersController {
 
     private final CustomerDAO customerDao;
+    private final ProgramDAO programDao;
     //private boolean test = false;
     //private String currentMail;
 
-    public CustomersController(CustomerDAO customerDao) {
+    public CustomersController(CustomerDAO customerDao, ProgramDAO programDao) {
         this.customerDao = customerDao;
+        this.programDao = programDao;
     }
 
     /*
@@ -128,7 +132,7 @@ public class CustomersController {
             System.out.println("LE MAIL ENTRE EST : " + LoginForm.getMail());
             return "redirect:/";
         }
-        return "add_member";
+        return "inscription";
     }
 
     @PostMapping("/inscription")
@@ -160,10 +164,13 @@ public class CustomersController {
         }
         //System.out.println("mail : " + m);
         //test = false;
-        Customer c = customerDao.findCustomerByMail(m);
+        Customer customer = customerDao.findCustomerByMail(m);
+        model.addAttribute("customer", customer); //Afficher
 
-        //Afficher
-        model.addAttribute("c", c);
+        System.out.println("ici viens le bug");
+        //model.addAttribute("program", programDao.findProgramsByMail(m)); //Afficher tous les programmes
+
+
         //Afficher liste entiere :
         //model.addAttribute("data", customerDao.findAll());
 

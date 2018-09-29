@@ -1,7 +1,9 @@
 package epf.projectgymtonic;
 
 import epf.projectgymtonic.models.Customer;
+import epf.projectgymtonic.models.Program;
 import epf.projectgymtonic.persistence.CustomerDAO;
+import epf.projectgymtonic.persistence.ProgramDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -15,6 +17,9 @@ public class MainAppGymtonic {
 
     @Autowired
     private CustomerDAO customerDao;
+
+    @Autowired
+    private ProgramDAO programDao;
 
     public static void main(String[] args) {
         // Point d'entrée de l'application.
@@ -33,11 +38,16 @@ public class MainAppGymtonic {
      */
     @PostConstruct
     public void init() {
+        /**UTILISATEURS TEST*/
         customerDao.deleteAll();//TODO supprimer cette ligne à la fin
         customerDao.save(new Customer(null,"David", "Bernadet","david.bernadet@yahoo.fr","david","1996-03-02","Monsieur", 1, false));
         customerDao.save(new Customer(null, "Romain", "Cogen","romain.cogen@epfedu.fr","romain","1996-12-24","Monsieur", 1, false));
         customerDao.save(new Customer(null, "Lancelot", "Du Lac","lancelot.dulac@epfedu.fr","lance","1996-05-14","Monsieur", 1, false));
         /**ADMIN*/
         customerDao.save(new Customer(null, "admin", "admin", "admin", "admin", "admin", "admin", 2, false));
+        /**PROGRAMMES TEST*/
+        programDao.save(new Program(null, "david.bernadet@yahoo.fr", "A1_B2_C1", "Fast Summer Body"));
+        programDao.save(new Program(null, "david.bernadet@yahoo.fr", "A1_B1_C3", "From David to Goliath"));
+        programDao.save(new Program(null, "romain.cogen@epfedu.fr", "A2_B3_C1", "T'es déjà parfait frr"));
     }
 }

@@ -11,5 +11,5 @@ import javax.persistence.Id
  * @author Loïc Ortola on 10/09/2018
  */
 @Entity
-data class Program(@Id @GeneratedValue var id: Int? =  null) {
+data class Program(@Id @GeneratedValue var id: Int? =  null, var mail: String? = null, var choicesChain: String? = null, var proposedProgram: String? = null) {
 }

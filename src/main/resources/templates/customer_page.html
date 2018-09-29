@@ -66,20 +66,20 @@
 
                                 <table class="table table-bordered table-striped table-condensed">
                                     <tr>
-                                        <th>firstName</th>
-                                        <th>lastName</th>
-                                        <th>mail</th>
-                                        <th>password</th>
-                                        <th>date</th>
-                                        <th>gender</th>
+                                        <th>Prénom</th>
+                                        <th>Nom de famille</th>
+                                        <th>E-mail</th>
+                                        <th>Mot de passe</th> <!-- TODO : le cacher par des points et l'afficher avec un bouton -->
+                                        <th>Date de naissance</th>
+                                        <th>Sexe</th>
                                     </tr>
                                     <tr>
-                                        <td th:text="${c.firstName}"></td>
-                                        <td th:text="${c.lastName}"></td>
-                                        <td th:text="${c.mail}"></td>
-                                        <td th:text="${c.password}"></td>
-                                        <td th:text="${c.date}"></td>
-                                        <td th:text="${c.gender}"></td>
+                                        <td th:text="${customer.firstName}"></td>
+                                        <td th:text="${customer.lastName}"></td>
+                                        <td th:text="${customer.mail}"></td>
+                                        <td th:text="${customer.password}"></td>
+                                        <td th:text="${customer.date}"></td>
+                                        <td th:text="${customer.gender}"></td>
                                     </tr>
                                 </table>
                                 <p class="lead btn btn-success"><a th:href="@{/xxx}"><font size="5"> Modifier mes informations personelles</font>  </a></p>
@@ -99,7 +99,57 @@
     <!-- /#page-wrapper -->
 
 </div>
-<!-- /#wrapper -->
+
+
+<div id="wrapper2">
+    <div id="page-wrapper2" class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Mes programmes</h1>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">
+                <!-- /.panel -->
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-8">
+
+                                <table class="table table-bordered table-striped table-condensed">
+                                    <tr>
+                                        <th>Index du programme</th>
+                                        <th>Identifiant</th>
+                                        <th>Mon programme</th>
+                                    </tr>
+                                    <tr th:each="program : ${program}">
+                                        <td th:text="${program.id}"></td>
+                                        <td th:text="${program.mail}"></td>
+                                        <td th:text="${program.proposedProgram}"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="text-right">
+                                    <button class="btn btn-lg btn-primary">Créer un nouveau programme</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
 
 <!-- jQuery -->
 <script src="../js/jquery-3.1.1.min.js"></script>
