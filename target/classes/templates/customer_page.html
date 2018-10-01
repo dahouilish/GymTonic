@@ -72,12 +72,12 @@
                                         <th>Sexe</th>
                                     </tr>
                                     <tr>
-                                        <td th:text="${customer.firstName}"></td>
-                                        <td th:text="${customer.lastName}"></td>
-                                        <td th:text="${customer.mail}"></td>
-                                        <td th:text="${customer.password}"></td>
-                                        <td th:text="${customer.date}"></td>
-                                        <td th:text="${customer.gender}"></td>
+                                        <td th:text="${c.firstName}"></td>
+                                        <td th:text="${c.lastName}"></td>
+                                        <td th:text="${c.mail}"></td>
+                                        <td th:text="${c.password}"></td>
+                                        <td th:text="${c.date}"></td>
+                                        <td th:text="${c.gender}"></td>
                                     </tr>
                                 </table>
                             </div>
@@ -120,16 +120,16 @@
                                         <th>Identifiant</th>
                                         <th>Mon programme</th>
                                     </tr>
-                                    <tr th:each="program : ${program}">
-                                        <td th:text="${program.id}"></td>
-                                        <td th:text="${program.mail}"></td>
-                                        <td th:text="${program.proposedProgram}"></td>
+                                    <tr th:each="p : ${p}">
+                                        <td th:text="${p.id}"></td>
+                                        <td th:text="${p.mail}"></td>
+                                        <td th:text="${p.proposedProgram}"></td>
                                     </tr>
                                 </table>
                             </div>
                             <div class="col-xs-4">
                                 <div class="text-right">
-                                    <button class="btn btn-lg btn-primary">Créer un nouveau programme</button>
+                                    <a th:href="@{/newProgram}"><button class="btn btn-lg btn-primary">Créer un nouveau programme</button></a>
                                 </div>
                             </div>
                         </div>

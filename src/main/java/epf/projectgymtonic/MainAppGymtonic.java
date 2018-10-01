@@ -46,8 +46,8 @@ public class MainAppGymtonic {
         /**ADMIN*/
         customerDao.save(new Customer(null, "admin", "admin", "admin", "admin", "admin", "admin", 2, false));
         /**PROGRAMMES TEST*/
-        programDao.save(new Program(null, "david.bernadet@yahoo.fr", "A1_B2_C1", "Fast Summer Body"));
-        programDao.save(new Program(null, "david.bernadet@yahoo.fr", "A1_B1_C3", "From David to Goliath"));
-        programDao.save(new Program(null, "romain.cogen@epfedu.fr", "A2_B3_C1", "T'es déjà parfait frr"));
+        programDao.save(new Program(null, "david.bernadet@yahoo.fr", 70,1.80F, null, "3-4","muscle","1_2_1", "Fast Summer Body"));
+        programDao.save(new Program(null, "david.bernadet@yahoo.fr", 70,1.80F, null, "3-4","endurance","1_1_3", "From David to Goliath"));
+        programDao.save(new Program(null, "romain.cogen@epfedu.fr",68,1.80F, null, "1-2","muscle", "2_3_1", "T'es déjà parfait frr"));
     }
 }

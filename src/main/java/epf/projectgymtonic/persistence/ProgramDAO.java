@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * TODO class details.
  *
@@ -14,8 +16,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProgramDAO extends JpaRepository<Program, Integer> {
 
-
-    @Query("SELECT * FROM Program program WHERE program.mail = :Mail")
-    Program findProgramsByMail(@Param("Mail") String Mail);
+    @Query("SELECT p FROM Program p WHERE p.mail = :Mail")
+    List<Program> findProgramsByMail(@Param("Mail") String Mail);
 
 }
