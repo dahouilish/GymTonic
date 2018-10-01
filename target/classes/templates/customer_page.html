@@ -31,7 +31,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"> <img alt="logo" src="https://pbs.twimg.com/profile_images/419865912716443649/nCWaixZb.png"></a>
+            <a class="navbar-brand" href="#"> <img alt="logo" src="img/yes.png" width="20%"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -60,6 +60,8 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="row">
+                            Bonjour <td th:text="${c.firstName}", ></td> voici vos inforamtions personelles :
+
                             <div class="col-xs-12">
 
                                 <table class="table table-bordered table-striped table-condensed">
@@ -80,6 +82,8 @@
                                         <td th:text="${c.gender}"></td>
                                     </tr>
                                 </table>
+                                <p class="lead btn btn-success"><a th:href="@{/xxx}"><font size="5"> Modifier mes informations personelles</font>  </a></p>
+
                             </div>
                         </div>
                         <!-- /.row -->
