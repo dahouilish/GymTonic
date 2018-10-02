@@ -8,7 +8,8 @@ html {
 
 body {
   height: auto;
-      background-image:  linear-gradient(rgba(0, 0, 255, 0.4), rgba(255, 255, 0, 0.4)), url("../img/salle.jpg");
+
+      background-image:  linear-gradient(rgba(0, 0, 200, 0.6), rgba(200, 200, 0, 0.6)), url("../img/salle.jpg");
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
@@ -17,8 +18,14 @@ body {
 
 .starter-template {
   padding: 40px 15px;
+  font-family: 'Righteous', cursive;
+  color: white;
   text-align: center;
+  font-size: 50px;
+  line-height:200px
 }
+
+
 
   body #wrapper {
     min-height: 100%;

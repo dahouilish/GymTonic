@@ -2,7 +2,9 @@ package epf.projectgymtonic.controllers;
 
 import epf.projectgymtonic.models.Customer;
 import epf.projectgymtonic.form.LoginForm;
+import epf.projectgymtonic.models.Program;
 import epf.projectgymtonic.persistence.CustomerDAO;
+import epf.projectgymtonic.persistence.ProgramDAO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +18,13 @@ import javax.swing.*;
 public class CustomersController {
 
     private final CustomerDAO customerDao;
+    private final ProgramDAO programDao;
     //private boolean test = false;
     //private String currentMail;
 
-    public CustomersController(CustomerDAO customerDao) {
+    public CustomersController(CustomerDAO customerDao, ProgramDAO programDao) {
         this.customerDao = customerDao;
+        this.programDao = programDao;
     }
 
     /*
@@ -128,7 +132,7 @@ public class CustomersController {
             System.out.println("LE MAIL ENTRE EST : " + LoginForm.getMail());
             return "redirect:/";
         }
-        return "add_member";
+        return "inscription";
     }
 
     @PostMapping("/inscription")
@@ -148,6 +152,41 @@ public class CustomersController {
         return "redirect:/login";
     }
 
+
+    @GetMapping("/newProgram")
+    public String addProgramForm(Model model) {
+        model.addAttribute("customer", new Customer());
+        return "new_program";
+    }
+
+    @PostMapping("/newProgram")
+    public String addProgram(Program program, Model model) {
+        program.setMail(LoginForm.getMail());
+        program.setImc(program.getWeight() / (program.getHeight() * program.getHeight())); //IMC = Poids / Taille^2
+
+        String choice1 = "";
+        String choice2 = "";
+        String choice3 = "";
+
+        if (program.getImc() < 18.5F){choice1 = "1";}
+        if ( (program.getImc() >= 18.5F) & (program.getImc() <= 25.0F)){choice1 = "2";}
+        if (program.getImc() > 25.0F){choice1 = "3";}
+
+        if (program.getFrequence().equals("0 fois")){choice2 = "1";}
+        if (program.getFrequence().equals("1 à 2 fois")){choice2 = "2";}
+        if (program.getFrequence().equals("3 à 7 fois")){choice2 = "3";}
+
+        if (program.getGoal().equals("Prise de muscle")){choice3 = "1";}
+        if (program.getGoal().equals("Renforcement")){choice3 = "2";}
+        if (program.getGoal().equals("Perte de poids")){choice3 = "3";}
+
+        program.setChainOfChoices(choice1 + "_" + choice2 + "_" + choice3);
+
+
+        programDao.save(program);
+        return "redirect:/customerPage";
+    }
+
     @GetMapping("/customerPage")
     public String displayCustomerPage(Model model) {
 
@@ -161,9 +200,11 @@ public class CustomersController {
         //System.out.println("mail : " + m);
         //test = false;
         Customer c = customerDao.findCustomerByMail(m);
+        model.addAttribute("c", c); //Afficher
 
-        //Afficher
-        model.addAttribute("c", c);
+        model.addAttribute("p", programDao.findProgramsByMail(m)); //Afficher tous les programmes d'un customer
+
+
         //Afficher liste entiere :
         //model.addAttribute("data", customerDao.findAll());
 
@@ -172,6 +213,7 @@ public class CustomersController {
 
     @GetMapping("/adminPage")
     public String displayAdminPage(Model model) {
+        System.out.println(customerDao.findAll()); //Debug
         model.addAttribute("data", customerDao.findAll());
         return "admin_page";
     }
