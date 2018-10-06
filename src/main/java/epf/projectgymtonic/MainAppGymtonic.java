@@ -39,10 +39,10 @@ public class MainAppGymtonic {
     @PostConstruct
     public void init() {
         /**UTILISATEURS TEST*/
-        customerDao.deleteAll();//TODO supprimer cette ligne à la fin
-        customerDao.save(new Customer(null,"David", "Bernadet","david.bernadet@yahoo.fr","david","1996-03-02","Monsieur", 1, false));
-        customerDao.save(new Customer(null, "Romain", "Cogen","romain.cogen@epfedu.fr","romain","1996-12-24","Monsieur", 1, false));
-        customerDao.save(new Customer(null, "Lancelot", "Du Lac","lancelot.dulac@epfedu.fr","lance","1996-05-14","Monsieur", 1, false));
+        //customerDao.deleteAll();//TODO supprimer cette ligne à la fin
+        customerDao.save(new Customer(null,"David", "Bernadet","david.bernadet@yahoo.fr","david","1996-03-02","Homme", 1, false));
+        customerDao.save(new Customer(null, "Romain", "Cogen","romain.cogen@epfedu.fr","romain","1996-12-24","Homme", 1, false));
+        customerDao.save(new Customer(null, "Lancelot", "Du Lac","lancelot.dulac@epfedu.fr","lance","1996-05-14","Homme", 1, false));
         /**ADMIN*/
         customerDao.save(new Customer(null, "admin", "admin", "admin", "admin", "admin", "admin", 2, false));
         /**PROGRAMMES TEST*/
