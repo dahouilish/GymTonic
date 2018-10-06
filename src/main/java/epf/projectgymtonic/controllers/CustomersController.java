@@ -100,14 +100,16 @@ public class CustomersController {
         if (currentMail.equals(email) && currentPassword.equals(password)) {
             System.out.println("USER RECONNU DANS LA BDD : SUCCESS !");
             switch (currentCustomer.getRole()) {
+                //TODO: delete switch - display is conditionnal
                 case 1:
                     return "redirect:/customerPage";
                 case 2:
-                    return "redirect:/adminPage";
+                    return "redirect:/customerPage";
                 default:
                     System.out.println("Cas par defaut du switch");
                     return "redirect:/";
             }
+            //return "redirect:/customerPage";
 
         }
         //model.addAttribute("invalidCredentials", true);
@@ -128,8 +130,8 @@ public class CustomersController {
     public String addUserForm(Model model) {
         model.addAttribute("customer", new Customer());
         if (LoginForm.getMail() != null) {
-            displayAlertMessage("Vous êtes déjà inscrit !");
-            System.out.println("LE MAIL ENTRE EST : " + LoginForm.getMail());
+            displayAlertMessage("Vous êtes déjà inscrit ! : " + LoginForm.getMail());
+            //System.out.println("LE MAIL ENTRE EST : " + LoginForm.getMail());
             return "redirect:/";
         }
         return "inscription";
@@ -144,6 +146,9 @@ public class CustomersController {
             return "redirect:/inscription";
         }
         customerDao.save(customer);
+        System.out.println("LE MAIL 222 ENTRE EST : " + customer.getMail());
+        System.out.println("LE MAIL 222 ENTRE EST : " + customer.getFirstName());
+        displayAlertMessage("L'adresse mail est : " + customer.getMail());
         //test = true;
         //currentMail = customer.getMail();
         displayAlertMessage("Vous êtes inscrit, bienvenue " + customer.getFirstName() + " !");
@@ -155,7 +160,7 @@ public class CustomersController {
 
     @GetMapping("/newProgram")
     public String addProgramForm(Model model) {
-        model.addAttribute("customer", new Customer());
+        //model.addAttribute("customer", new Customer());
         return "new_program";
     }
 
@@ -168,20 +173,19 @@ public class CustomersController {
         String choice2 = "";
         String choice3 = "";
 
-        if (program.getImc() < 18.5F){choice1 = "1";}
-        if ( (program.getImc() >= 18.5F) & (program.getImc() <= 25.0F)){choice1 = "2";}
-        if (program.getImc() > 25.0F){choice1 = "3";}
+        if (program.getImc() < 18.5F){choice1 = "A1";}
+        if ( (program.getImc() >= 18.5F) & (program.getImc() <= 25.0F)){choice1 = "A2";}
+        if (program.getImc() > 25.0F){choice1 = "A3";}
 
-        if (program.getFrequence().equals("0 fois")){choice2 = "1";}
-        if (program.getFrequence().equals("1 à 2 fois")){choice2 = "2";}
-        if (program.getFrequence().equals("3 à 7 fois")){choice2 = "3";}
+        if (program.getFrequence().equals("1 à 2 fois")){choice2 = "B1";}
+        if (program.getFrequence().equals("3 à 4 fois")){choice2 = "B2";}
+        if (program.getFrequence().equals("5 à 7 fois")){choice2 = "B3";}
 
-        if (program.getGoal().equals("Prise de muscle")){choice3 = "1";}
-        if (program.getGoal().equals("Renforcement")){choice3 = "2";}
-        if (program.getGoal().equals("Perte de poids")){choice3 = "3";}
+        if (program.getGoal().equals("Prise de muscle")){choice3 = "C1";}
+        if (program.getGoal().equals("Renforcement")){choice3 = "C2";}
+        if (program.getGoal().equals("Perte de poids")){choice3 = "C3";}
 
         program.setChainOfChoices(choice1 + "_" + choice2 + "_" + choice3);
-
 
         programDao.save(program);
         return "redirect:/customerPage";
@@ -194,29 +198,56 @@ public class CustomersController {
         //System.out.println("mail : " + m);
         if (m == null){ //&& test == false) {
             //m = currentMail;
-            displayAlertMessage("VOUS TENTEZ D'ACCEDER A UNE PAGE NON AUTORISEE");
+            displayAlertMessage("Vous tentez d'accéder à une page non autorisée");
             return "redirect:/login";
         }
-        //System.out.println("mail : " + m);
-        //test = false;
+
         Customer c = customerDao.findCustomerByMail(m);
-        model.addAttribute("c", c); //Afficher
-
-        model.addAttribute("p", programDao.findProgramsByMail(m)); //Afficher tous les programmes d'un customer
-
-
-        //Afficher liste entiere :
-        //model.addAttribute("data", customerDao.findAll());
-
+        switch (c.getRole()) {
+            case 1:
+                model.addAttribute("c", c); //display user info
+                model.addAttribute("p", programDao.findProgramsByMail(m)); //display user program info
+            case 2:
+                model.addAttribute("c", c); //injected to test role
+                model.addAttribute("data", customerDao.findAll()); //used to display all data user
+            default:
+                System.out.println("Cas par defaut du switch");
+        }
         return "customer_page";
     }
 
-    @GetMapping("/adminPage")
+    @GetMapping("/deleteCustomer")
+    public String deleteThisCustomer(String mail) {
+        customerDao.deleteCustomerByMail(mail);
+        //customerDao.delete(mail);
+        displayAlertMessage("User supprimé : " + mail);
+        return "redirect:/";
+    }
+
+    /*@GetMapping("/error")
+    public String displayError() {
+        displayAlertMessage("Erreur technique, redirection...");
+        return "redirect:/";
+    }*/
+
+
+    /*@GetMapping("/adminPage")
     public String displayAdminPage(Model model) {
+
+        String m = LoginForm.getMail();
+        //System.out.println("mail : " + m);
+        if (m == null){ //&& test == false) {
+            //m = currentMail;
+            displayAlertMessage("Vous tentez d'accéder à une page non autorisée");
+            return "redirect:/login";
+        }
+
         System.out.println(customerDao.findAll()); //Debug
         model.addAttribute("data", customerDao.findAll());
         return "admin_page";
-    }
+    }*/
+
+
 
     private void displayAlertMessage(String message) {
         JOptionPane pane = new JOptionPane(message, JOptionPane.INFORMATION_MESSAGE);
