@@ -14,7 +14,7 @@ import java.util.List;
  * @author Loïc Ortola on 10/09/2018
  */
 @Repository
-public interface ProgramDAO extends JpaRepository<Program, Integer> {
+public interface ProgramsDAO extends JpaRepository<Program, Integer> {
 
     @Query("SELECT p FROM Program p WHERE p.mail = :Mail")
     List<Program> findProgramsByMail(@Param("Mail") String Mail);

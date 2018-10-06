@@ -1,6 +1,6 @@
 package epf.projectgymtonic.persistence;
 
-import epf.projectgymtonic.models.Customer;
+import epf.projectgymtonic.models.GymTonicProgram;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -14,13 +14,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Repository
-public interface CustomerDAO extends JpaRepository<Customer, Integer>{
+public interface GymTonicProgramsDAO extends JpaRepository<GymTonicProgram, Integer> {
 
-    @Query("SELECT c FROM Customer c WHERE c.mail = :Mail")
-    Customer findCustomerByMail(@Param("Mail") String Mail);
-
-    //@Query("SELECT c FROM Customer c WHERE c.mail = :Mail")
-    //Customer findMailAlreadyUsed(@Param("Mail") String Mail);
+    @Query("SELECT p FROM GymTonicProgram p WHERE p.code = :Code")
+    GymTonicProgram findProgramByCode(@Param("Code") String Code);
 
 }
-

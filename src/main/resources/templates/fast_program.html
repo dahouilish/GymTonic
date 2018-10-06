@@ -37,7 +37,7 @@
             <ul class="nav navbar-nav">
                 <li><a th:href="@{/}">Accueil</a></li>
                 <li><a th:href="@{/customerPage}">Page perso</a></li>
-                <li class="active"><a th:href="@{/inscription}">Inscription</a></li>
+                <li><a th:href="@{/inscription}">Inscription</a></li>
                 <li><a th:href="@{/login}">Se connecter</a></li>
 
             </ul>
@@ -62,7 +62,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-xs-12">
-                                <form action="#" th:action="@{/newProgram}" th:object="${program}" method="post">
+                                <form action="#" th:action="@{/fastProgram}" th:object="${program}" method="post">
                                     <div class="form-group">
                                         <label>Poids</label>
                                         <input type="number" min="1" max="300" placeholder=" ... kg"
