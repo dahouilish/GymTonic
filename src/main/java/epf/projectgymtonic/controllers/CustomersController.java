@@ -145,6 +145,8 @@ public class CustomersController {
             displayAlertMessage("L'adresse mail est déjà utilisée.");
             return "redirect:/inscription";
         }
+        //customerDao.findCustomerByMail(LoginForm.getMail())
+                //customer.getMail();TODO HELLO YOU
         customerDao.save(customer);
         System.out.println("LE MAIL 222 ENTRE EST : " + customer.getMail());
         System.out.println("LE MAIL 222 ENTRE EST : " + customer.getFirstName());
@@ -224,11 +226,11 @@ public class CustomersController {
         return "redirect:/";
     }
 
-    /*@GetMapping("/error")
+    @GetMapping("/error")
     public String displayError() {
-        displayAlertMessage("Erreur technique, redirection...");
-        return "redirect:/";
-    }*/
+        //displayAlertMessage("Erreur technique, redirection...");
+        return "error";
+    }
 
 
     /*@GetMapping("/adminPage")
