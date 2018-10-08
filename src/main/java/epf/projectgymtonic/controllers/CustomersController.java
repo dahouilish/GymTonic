@@ -43,7 +43,6 @@ public class CustomersController {
             displayAlertMessage("Vous etes déjà connecté");
             return "redirect:/";
         }
-        displayAlertMessage("Vous n'etes pas encore connecté");
         return "login";
     }
 
@@ -70,68 +69,38 @@ public class CustomersController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String verifyLogin(@ModelAttribute(name = "loginForm") LoginForm loginForm, Model model) {
 
-        //Recuperation des valeurs des input du formulaire login
         String email = loginForm.getMail();
         String password = loginForm.getPassword();
-        //Recuperation du customer correspondant au mail
+        //Get the customer from the mail
         Customer currentCustomer = customerDao.findCustomerByMail(email);
-
+        //in case the password and the mail do not match
         if (currentCustomer == null) {
-            System.out.println("USER INCONNU DE LA BDD : FAILURE !");
             displayAlertMessage("L'adresse mail et/ou le mot de passe est invalide");
             loginForm.setEmail(null);
             loginForm.setPassword(null);
             return "login";
         }
-        /*System.out.println("CurrentCustomer LOGGED IN ? : " + currentCustomer.getAuthenticated());
-        currentCustomer.setAuthenticated(true);
-        System.out.println("CurrentCustomer LOGGED IN ? : " + currentCustomer.getAuthenticated());*/
-
-        System.out.println("CurrentCustomer : " + currentCustomer);
 
         String currentMail = currentCustomer.getMail();
         String currentPassword = currentCustomer.getPassword();
 
-        //LOGGER
-        //System.out.println("CurrentCustomer mail : " + currentMail + " PWD : " + currentPassword);
-        //System.out.println("INPUT : Email : " + email + " et password : " + password);
-
-        // Test de connexion : si = admin ,alors success
+        // Test login : if mail and password do match
         if (currentMail.equals(email) && currentPassword.equals(password)) {
-            System.out.println("USER RECONNU DANS LA BDD : SUCCESS !");
-            switch (currentCustomer.getRole()) {
-                //TODO: delete switch - display is conditionnal
-                case 1:
-                    return "redirect:/customerPage";
-                case 2:
-                    return "redirect:/customerPage";
-                default:
-                    System.out.println("Cas par defaut du switch");
-                    return "redirect:/";
+            if (currentCustomer.getRole() == 1 || currentCustomer.getRole() == 2) {
+                return "redirect:/customerPage";
+            }else{
+                return "redirect:/";
             }
-            //return "redirect:/customerPage";
-
         }
-        //model.addAttribute("invalidCredentials", true);
-        System.out.println("PASSWORD DOESN'T MATCH : FAILURE !");
         displayAlertMessage("L'adresse mail et/ou le mot de passe est invalide");
-        // si failure, rester sur la page login
         return "login";
     }
-
-    //TODO : supprimer ce WS et ajouter le html correspondant à la page des Customers
-    /*@GetMapping("/customers")
-    public String getCustomers(Model model) {
-        model.addAttribute("data", customerDao.findAll());
-        return "customers-list";
-    }*/
 
     @GetMapping("/inscription")
     public String addUserForm(Model model) {
         model.addAttribute("customer", new Customer());
         if (LoginForm.getMail() != null) {
             displayAlertMessage("Vous êtes déjà inscrit ! : " + LoginForm.getMail());
-            //System.out.println("LE MAIL ENTRE EST : " + LoginForm.getMail());
             return "redirect:/";
         }
         return "inscription";
@@ -139,28 +108,18 @@ public class CustomersController {
 
     @PostMapping("/inscription")
     public String addCustomer(Customer customer, Model model) {
-        System.out.println("LE MAIL ENTRE EST : " + customer.getMail());
         //In case the mail is already used
         if (customerDao.findCustomerByMail(customer.getMail()) != null) {
             displayAlertMessage("L'adresse mail est déjà utilisée.");
             return "redirect:/inscription";
         }
         customerDao.save(customer);
-        System.out.println("LE MAIL 222 ENTRE EST : " + customer.getMail());
-        System.out.println("LE MAIL 222 ENTRE EST : " + customer.getFirstName());
-        displayAlertMessage("L'adresse mail est : " + customer.getMail());
-        //test = true;
-        //currentMail = customer.getMail();
         displayAlertMessage("Vous êtes inscrit, bienvenue " + customer.getFirstName() + " !");
-        //TODO : si on veut rediriger directement sur customerPage, il faudra set mail et pwd de loginForm (static...)
-        //OU PAS ! ducon va , pointe juste sur login apres inscription et c good
         return "redirect:/login";
     }
 
-
     @GetMapping("/newProgram")
     public String addProgramForm(Model model) {
-        //model.addAttribute("customer", new Customer());
         return "new_program";
     }
 
@@ -169,23 +128,23 @@ public class CustomersController {
         program.setMail(LoginForm.getMail());
         program.setImc(program.getWeight() / (program.getHeight() * program.getHeight())); //IMC = Poids / Taille^2
 
-        String choice1 = "";
-        String choice2 = "";
-        String choice3 = "";
+        String choiceIMC = "";
+        String choiceFreq = "";
+        String choiceGoal = "";
 
-        if (program.getImc() < 18.5F){choice1 = "A1";}
-        if ( (program.getImc() >= 18.5F) & (program.getImc() <= 25.0F)){choice1 = "A2";}
-        if (program.getImc() > 25.0F){choice1 = "A3";}
+        if (program.getImc() < 18.5F){choiceIMC = "A1";}
+        if ( (program.getImc() >= 18.5F) & (program.getImc() <= 25.0F)){choiceIMC = "A2";}
+        if (program.getImc() > 25.0F){choiceIMC = "A3";}
 
-        if (program.getFrequence().equals("1 à 2 fois")){choice2 = "B1";}
-        if (program.getFrequence().equals("3 à 4 fois")){choice2 = "B2";}
-        if (program.getFrequence().equals("5 à 7 fois")){choice2 = "B3";}
+        if (program.getFrequence().equals("1 à 2 fois")){choiceFreq = "B1";}
+        if (program.getFrequence().equals("3 à 4 fois")){choiceFreq = "B2";}
+        if (program.getFrequence().equals("5 à 7 fois")){choiceFreq = "B3";}
 
-        if (program.getGoal().equals("Prise de muscle")){choice3 = "C1";}
-        if (program.getGoal().equals("Renforcement")){choice3 = "C2";}
-        if (program.getGoal().equals("Perte de poids")){choice3 = "C3";}
+        if (program.getGoal().equals("Prise de muscle")){choiceGoal = "C1";}
+        if (program.getGoal().equals("Renforcement")){choiceGoal = "C2";}
+        if (program.getGoal().equals("Perte de poids")){choiceGoal = "C3";}
 
-        program.setChainOfChoices(choice1 + "_" + choice2 + "_" + choice3);
+        program.setChainOfChoices(choiceIMC + "_" + choiceFreq + "_" + choiceGoal);
 
         programDao.save(program);
         return "redirect:/customerPage";
@@ -195,9 +154,7 @@ public class CustomersController {
     public String displayCustomerPage(Model model) {
 
         String m = LoginForm.getMail();
-        //System.out.println("mail : " + m);
-        if (m == null){ //&& test == false) {
-            //m = currentMail;
+        if (m == null){ //in case the user isn't logged in
             displayAlertMessage("Vous tentez d'accéder à une page non autorisée");
             return "redirect:/login";
         }
@@ -211,7 +168,7 @@ public class CustomersController {
                 model.addAttribute("c", c); //injected to test role
                 model.addAttribute("data", customerDao.findAll()); //used to display all data user
             default:
-                System.out.println("Cas par defaut du switch");
+                break;
         }
         return "customer_page";
     }
@@ -219,35 +176,33 @@ public class CustomersController {
     @GetMapping("/deleteCustomer")
     public String deleteThisCustomer(String mail) {
         customerDao.deleteCustomerByMail(mail);
-        //customerDao.delete(mail);
         displayAlertMessage("User supprimé : " + mail);
         return "redirect:/";
     }
 
-    /*@GetMapping("/error")
+    @GetMapping("/error")
     public String displayError() {
-        displayAlertMessage("Erreur technique, redirection...");
-        return "redirect:/";
-    }*/
+        return "error";
+    }
 
+    @GetMapping("/modifyCustomer")
+    public String modifyCustomerForm(Model model, String mail){
 
-    /*@GetMapping("/adminPage")
-    public String displayAdminPage(Model model) {
-
-        String m = LoginForm.getMail();
-        //System.out.println("mail : " + m);
-        if (m == null){ //&& test == false) {
-            //m = currentMail;
+        if (LoginForm.getMail() == null){
             displayAlertMessage("Vous tentez d'accéder à une page non autorisée");
             return "redirect:/login";
         }
+        model.addAttribute("customer", customerDao.findCustomerByMail(mail));
+        return "modifyCustomer";
+    }
 
-        System.out.println(customerDao.findAll()); //Debug
-        model.addAttribute("data", customerDao.findAll());
-        return "admin_page";
-    }*/
-
-
+    @PostMapping("/modifyCustomer")
+    public String submitModification(Customer customer, String mail){
+        customerDao.deleteCustomerByMail(mail);
+        displayAlertMessage("Vos modifications ont bien été prises en compte");
+        customerDao.save(customer);
+        return "redirect:/";
+    }
 
     private void displayAlertMessage(String message) {
         JOptionPane pane = new JOptionPane(message, JOptionPane.INFORMATION_MESSAGE);
