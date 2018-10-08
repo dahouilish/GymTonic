@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
 <nav class="navbar navbar-light navbar-expand-md">
     <div class="container-fluid"><a class="navbar-brand" th:href="@{/}"><strong>GymTonic</strong></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse"
@@ -22,12 +23,14 @@
                 <li class="nav-item" role="presentation" th:if="${c.role == 1}"><a class="nav-link active" th:href="@{/customerPage}">Page perso</a></li>
                 <li class="nav-item" role="presentation" th:if="${c.role == 2}"><a class="nav-link active" th:href="@{/adminPage}">Page admin</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link active" th:href="@{/exit}">Déconnexion</a></li>
+
             </ul>
         </div>
     </div>
 </nav>
 
 <div id="wrapper" th:if="${c.role == 1}">
+
     <div id="promo">
     <div class="jumbotron">
         <h1>Vos programmes</h1>
@@ -49,6 +52,7 @@
                 <a th:href="@{/newProgram}">
                     <button class="btn btn-lg btn-primary">Créer un nouveau programme</button>
                 </a>
+
             </div>
         </div>
 
@@ -129,7 +133,6 @@
         <p class="copyright">GymTonic © 2018</p>
     </footer>
 </div>
-
 
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
