@@ -116,25 +116,23 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <div class="row">
-                            <div class="col-xs-8">
+                            <div class="col-xs-12">
 
                                 <table class="table table-bordered table-striped table-condensed">
                                     <tr>
-                                        <th>Index du programme</th>
-                                        <th>Identifiant</th>
-                                        <th>Mon programme</th>
+                                        <th>Programme</th>
+                                        <th>Description</th>
+                                        <th></th>
                                     </tr>
                                     <tr th:each="p : ${p}">
-                                        <td th:text="${p.id}"></td>
-                                        <td th:text="${p.mail}"></td>
                                         <td th:text="${p.proposedProgram}"></td>
+                                        <td th:text="${p.description}"></td>
+                                        <td><img th:src="${p.image}" alt="programme " width="20%" height="20%"/></td>
                                     </tr>
                                 </table>
                             </div>
-                            <div class="col-xs-4">
-                                <div class="text-right">
-                                    <a th:href="@{/newProgram}"><button class="btn btn-lg btn-primary">Créer un nouveau programme</button></a>
-                                </div>
+                            <div class="text-right">
+                                <a th:href="@{/newProgram}"><button class="btn btn-lg btn-primary">Créer un nouveau programme</button></a>
                             </div>
                         </div>
                         <!-- /.row -->

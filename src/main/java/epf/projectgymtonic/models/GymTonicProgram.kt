@@ -12,4 +12,4 @@ import javax.persistence.Id
  */
 @Entity
 data class GymTonicProgram(@Id @GeneratedValue var id: Int? =  null, var code: String? = null, var name: String? = null,
-                           var description: String? = null)
+                           var description: String? = null, var image: String? = null)

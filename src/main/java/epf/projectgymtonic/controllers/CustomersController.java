@@ -111,6 +111,8 @@ public class CustomersController {
             System.out.println("USER RECONNU DANS LA BDD : SUCCESS !");
             switch (currentCustomer.getRole()) {
                 case 1:
+                    //Program program = programsDao.selectTemporaryProgram();
+                    //program.setMail(LoginForm.getMail());
                     return "redirect:/customerPage";
                 case 2:
                     return "redirect:/adminPage";
@@ -231,24 +233,22 @@ public class CustomersController {
         ProgramAttribution programAttribution = programsAttributionDao.findProgramByChainOfChoices(program.getChainOfChoices());
         GymTonicProgram gymTonicProgram = gymTonicProgramsDao.findProgramByCode(programAttribution.getCode());
 
-
         program.setProposedProgram(gymTonicProgram.getName());
+        program.setDescription(gymTonicProgram.getDescription());
+        program.setImage(gymTonicProgram.getImage());
 
         if (!fastProgram) {
             displayAlertMessage("Votre programme", gymTonicProgram.getName() + "\n\nRetrouvez les détails du programme dans votre Page perso");
         } else {
             displayAlertMessage("Votre programme", gymTonicProgram.getName()  + "\n\nRetrouvez les détails du programme dans votre Page perso, \n" +
-                    "Inscrivez-vous pour pouvoir enregistrer vos programmes.");
+                    "Connectez-vous pour pouvoir enregistrer vos programmes.");
         }
 
-        //TODO :
-        //si fast : on affiche le programme obtenu +
-        // + "Pour enregistrer ce programme, inscrivez-vous : " + on affiche un bouton d'inscription
-        //modifier inscritpion pour qu'elle puisse push le programme gardé en mémoire tant que le gars n'aie
-        //pas fini son inscription
-
         programsDao.save(program);
+
         if (fastProgram) {
+            programsDao.deleteTemporaryPrograms();
+            program.setMail("temporaryUser@gymtonic.com");
             return "redirect:/";
         } else {
             return "redirect:/customerPage";
@@ -285,6 +285,20 @@ public class CustomersController {
         model.addAttribute("data", customersDao.findAll());
         return "admin_page";
     }
+
+    /*private void displayAlertMessage(String title, String message, String image) {
+        JOptionPane pane = new JOptionPane();
+        JDialog dialog = pane.createDialog(null, title);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+        ImageIcon imageIcon = new ImageIcon("../GymTonic/src/main/resources/static" + image);
+        if(image != null){
+            System.out.println("../GymTonic/src/main/resources/static" + image);
+            pane.showMessageDialog(null, message, title, JOptionPane.INFORMATION_MESSAGE, imageIcon);
+        } else {
+            pane.showMessageDialog(null, message, title, JOptionPane.INFORMATION_MESSAGE);
+        }
+    }*/
 
     private void displayAlertMessage(String title, String message) {
         JOptionPane pane = new JOptionPane(message, JOptionPane.INFORMATION_MESSAGE);

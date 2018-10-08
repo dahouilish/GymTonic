@@ -54,13 +54,19 @@ public class MainAppGymtonic {
         /**ADMIN*/
         customersDao.save(new Customer(null, "admin", "admin", "admin", "admin", "admin", "admin", 2, false));
         /**PROGRAMMES GYMTONIC*/
-        gymTonicProgramsDao.save(new GymTonicProgram(null, "DG", "From David to Goliath", ""));
-        gymTonicProgramsDao.save(new GymTonicProgram(null, "F", "Fast Summer Body", ""));
-        gymTonicProgramsDao.save(new GymTonicProgram(null, "C", "Consulte ton Médecin !", ""));
-        gymTonicProgramsDao.save(new GymTonicProgram(null, "D", "Décrassage Express", ""));
-        gymTonicProgramsDao.save(new GymTonicProgram(null, "S", "Sahara Dry", ""));
-        gymTonicProgramsDao.save(new GymTonicProgram(null, "B", "Objectif Bulldozer", ""));
-        gymTonicProgramsDao.save(new GymTonicProgram(null, "FG", "Fonte des Glaces", ""));
+        gymTonicProgramsDao.save(new GymTonicProgram(null, "DG", "-FROM DAVID TO GOLIATH-", "Dessiner ses muscles. 8 à 12 répétitions par séries. " +
+                "8 à 12 séries par groupe musculaire. Charges entre 60% et 75% de la charge maximale. Rythme d'execution lent.", "/img/goliath.jpg"));
+        gymTonicProgramsDao.save(new GymTonicProgram(null, "F", "-FAST SUMMER BODY-", "Renforcement musculaire pour perdre le gras. " +
+                "20 à 30 répétitions par séries. 5 à 10 séries par groupe musculaire. Charges entre 50% et 60% de la charge maximale. Rythme d'éxecution rapide.", "/img/summer.jpg"));
+        gymTonicProgramsDao.save(new GymTonicProgram(null, "C", "CONSULTE TON MEDECIN !", "Votre volonté de perdre du poids est inquiétante compte tenu de votre état actuel.", "/img/consulte.jpg"));
+        gymTonicProgramsDao.save(new GymTonicProgram(null, "D", "-DECRASSAGE EXPRESS-", "Remise en forme. Routine quotidienne à rélaiser : " +
+                "10 min d'échauffement puis : Air squats, Pompes, Curl, Rowing, Crunch, Planche, Burpees (10 à 20 répétitions, 1 min de repos entre chaque exercice, 1 fois).", "/img/forme.jpg"));
+        gymTonicProgramsDao.save(new GymTonicProgram(null, "S", "-SAHARA DRY-", "Programme de sèche. 12 à 15 répétitions par séries. " +
+                "5 à 10 séries par groupe musculaire. Charges à 50% de la charge maximale. Rythme d'éxecution rapide. 2 séances de 60 min de cardio par semaine.", "/img/dry.jpg"));
+        gymTonicProgramsDao.save(new GymTonicProgram(null, "B", "-OBJECTIF BULLDOZER-", "Gain en puissance. 3 à 6 répétitions par séries. " +
+                "3 à 5 séries par groupe musculaire. Charges entre 80% et 90% de la charge maximale. Rythme d'éxecution maximal.", "/img/wrecking_ball.jpg"));
+        gymTonicProgramsDao.save(new GymTonicProgram(null, "FG", "-FONTE DES GLACES-", "Perte de poids. 30 min de cardio quotidien :" +
+                "Vélo home-trainer, marche.", "/img/fonte.jpg"));
         /**LIENS PROGRAMMES_GYMTONIC--CHAINES_DE_CHOIX */
         //_______A1 (IMC : maigreur)
         programsAttributionDao.save(new ProgramAttribution(null, "A1_B1_C1", "DG"));
@@ -84,8 +90,8 @@ public class MainAppGymtonic {
         programsAttributionDao.save(new ProgramAttribution(null, "A2_B3_C3", "S"));
         //_______A3 (IMC : surpoids)
         programsAttributionDao.save(new ProgramAttribution(null, "A3_B1_C1", "B"));
-        programsAttributionDao.save(new ProgramAttribution(null, "A3_B1_C2", "FG"));
-        programsAttributionDao.save(new ProgramAttribution(null, "A3_B1_C3", "FG"));
+        programsAttributionDao.save(new ProgramAttribution(null, "A3_B1_C2", "D"));
+        programsAttributionDao.save(new ProgramAttribution(null, "A3_B1_C3", "D"));
         programsAttributionDao.save(new ProgramAttribution(null, "A3_B2_C1", "B"));
         programsAttributionDao.save(new ProgramAttribution(null, "A3_B2_C2", "FG"));
         programsAttributionDao.save(new ProgramAttribution(null, "A3_B2_C3", "FG"));
@@ -95,9 +101,12 @@ public class MainAppGymtonic {
 
 
         /**PROGRAMMES TEST*/
-        programsDao.save(new Program(null, "david.bernadet@yahoo.fr", 70, 1.80F, null, "3-4", "muscle", "A1_B2_C1", "Fast Summer Body"));
-        programsDao.save(new Program(null, "david.bernadet@yahoo.fr", 70, 1.80F, null, "3-4", "endurance", "A1_B1_C3", "From David to Goliath"));
-        programsDao.save(new Program(null, "romain.cogen@epfedu.fr", 68, 1.80F, null, "1-2", "muscle", "A2_B3_C1", "T'es déjà parfait frr"));
+        programsDao.save(new Program(null, "david.bernadet@yahoo.fr", 70, 1.80F, null, "3-4",
+                "muscle", "A1_B2_C1", "-FAST SUMMER BODY-", null, null));
+        programsDao.save(new Program(null, "david.bernadet@yahoo.fr", 70, 1.80F, null, "3-4",
+                "endurance", "A1_B1_C3", "-FROM DAVID TO GOLIATH-", null, null));
+        programsDao.save(new Program(null, "romain.cogen@epfedu.fr", 68, 1.80F, null, "1-2",
+                "muscle", "A2_B3_C1", "T'es déjà parfait frr", null, null));
 
     }
 }
