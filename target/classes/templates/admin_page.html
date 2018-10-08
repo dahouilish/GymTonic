@@ -71,8 +71,11 @@
                                         <th>password</th>
                                         <th>date</th>
                                         <th>gender</th>
+                                        <th>Supprimer</th>
+                                        <th>Supprimer2</th>
+                                        <th>Supprimer2</th>
                                     </tr>
-                                    <tr th:each="user : ${data}">
+                                    <tr th:href="@{/admin_page_programs}" th:each="user : ${data}">
                                         <td th:text="${user.id}"></td>
                                         <td th:text="${user.firstName}"></td>
                                         <td th:text="${user.lastName}"></td>
@@ -80,9 +83,18 @@
                                         <td th:text="${user.password}"></td>
                                         <td th:text="${user.date}"></td>
                                         <td th:text="${user.gender}"></td>
+                                        <td><button>supprimer ?</button></td>
+                                        <td>
+                                            <input type="radio"/>
+                                            <label>Radio</label>
+                                        </td>
 
                                     </tr>
                                 </table>
+
+                                <td th:each="c : ${data}">
+                                    <span th:if="${c.mail == 'admin'}">ADMIN</span>
+                                </td>
 
                             </div>
                         </div>
@@ -90,6 +102,7 @@
                     </div>
                     <!-- /.panel-body -->
                 </div>
+
                 <!-- /.panel -->
             </div>
             <!-- /.col-lg-12 -->

@@ -1,62 +1,75 @@
 <!DOCTYPE html>
+
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:td="http://www.w3.org/1999/xhtml">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ma page frr</title>
-    <meta name="description" content="Page d'accueil">
-    <meta name="author" content="Lance">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/starter-template.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"> <img src="img/yes.png" alt="logo" width="20%"></a>
 
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a th:href="@{/}">Accueil</a></li>
-                <li><a th:href="@{/customerPage}">Page perso</a></li>
-                <li><a th:href="@{/inscription}">Inscription</a></li>
-                <li><a th:href="@{/login}">Se connecter</a></li>
-                <li><a th:href="@{/exit}">Déconnexion</a></li>
+
+<body>
+<nav class="navbar navbar-light navbar-expand-md">
+    <div class="container-fluid"><a class="navbar-brand" href="#"><strong>GymTonic</strong></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse"
+             id="navcol-1">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item" role="presentation"><a class="nav-link active" th:href="@{/customerPage}">Mon compte</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/login}">Sign In</a></li>
 
             </ul>
-        </div><!--/.nav-collapse -->
+        </div>
     </div>
 </nav>
-<div class="container">
-    <div class="starter-template">
-        <!-- <img src="img/salle.jpg"> -->
-        Bienvenue chez GYM TONIC !
-        <p class="lead"><font size="5"> Viens te dépenser avec nous, c'est cool ! <br> L'aventure va commencer maintenant</font> </p>
-        &nbsp;
-        <p class="lead btn btn-success"><a th:href="@{/inscription}"><font size="5"> Inscription</font>  </a></p>
+<div id="promo" style="padding:180px;">
+    <div class="jumbotron">
+        <h1>Bienvenue chez GymTonic !</h1>
+        <p>Profitez de programmes adaptés à votre besoin pour vous maintenir en forme et réussir à atteindre ses objectifs !</p>
+        <p><a class="btn btn-primary" role="button" th:href="@{/inscription}">Inscription</a></p>
     </div>
-</div><!-- /.container -->
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<!-- jQuery -->
-<script src="../js/jquery-3.1.1.min.js"></script>
-<!-- Bootstrap Core JavaScript -->
-<script src="../js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+</div>
+<div class="container site-section" id="welcome">
+    <h1>Bon Courage !</h1>
+    <p>Ne vous en faites pas, on va vous accompagner&nbsp;</p>
+</div>
+<div class="container site-section2" id="why">
+    <h1 class="text-capitalize" style="padding:25px;">Pourquoi nous choisir ?</h1>
+    <div class="row">
+        <div class="col-4"><i class="fa fa-euro"></i>
+            <h2>Prix</h2>
+            <p>Un prix compétitif</p>
+        </div>
+        <div class="col-4"><i class="fa fa-th"></i>
+            <h2>Programmes</h2>
+            <p>Différents programmes personalisés</p>
+        </div>
+        <div class="col-4"><i class="fa fa-key"></i>
+            <h2>Accès</h2>
+            <p>Des salles de sports à votre disposition</p>
+        </div>
+    </div>
+</div>
+<div class="footer-basic">
+    <footer>
+        <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Home</a></li>
+            <li class="list-inline-item"><a href="#">Services</a></li>
+            <li class="list-inline-item"><a href="#">About</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+        </ul>
+        <p class="copyright">GymTonic © 2018</p>
+    </footer>
+</div>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
+
 </html>
