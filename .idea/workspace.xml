@@ -1,19 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/resources/templates/login.html" line="53" />
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/controllers/CustomersController.java" line="32" mnemonic="8" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/resources/templates/login.html" line="54" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/controllers/CustomersController.java" line="42" mnemonic="8" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8351db7a-aaed-43be-ab47-0949f13d28e8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/models/GymTonicProgram.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/models/ProgramAttribution.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/persistence/GymTonicProgramDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/persistence/ProgramAttributionDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/consulte.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/dry.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/fonte.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/forme.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/goliath.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/summer.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/assets/img/wrecking_ball.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fast_program.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Architecture_projet.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/MainAppGymtonic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/MainAppGymtonic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/controllers/CustomersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/controllers/CustomersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/form/LoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/form/LoginForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/persistence/CustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/persistence/CustomerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/models/Program.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/models/Program.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/persistence/ProgramDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/persistence/ProgramDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/add_event.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/add_promotion.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin_page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/customer_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/customer_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/customers_list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/inscription.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/inscription.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/modifyCustomer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/modifyCustomer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/new_program.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/new_program.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/epf/projectgymtonic/MainAppGymtonic.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/epf/projectgymtonic/MainAppGymtonic.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/epf/projectgymtonic/controllers/CustomersController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/epf/projectgymtonic/controllers/CustomersController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/epf/projectgymtonic/models/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/epf/projectgymtonic/models/Customer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/epf/projectgymtonic/models/Program.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/epf/projectgymtonic/models/Program.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/epf/projectgymtonic/persistence/ProgramDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/epf/projectgymtonic/persistence/ProgramDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/customer_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/customer_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -81,73 +107,84 @@
     <session id="-1226015444">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.1" value="2" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.59" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="6" />
-          <entry key="java" value="7" />
-          <entry key="kt" value="1" />
+          <entry key="html" value="21" />
+          <entry key="java" value="17" />
+          <entry key="kt" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="6" />
-          <entry key="JAVA" value="7" />
-          <entry key="Kotlin" value="1" />
+          <entry key="HTML" value="21" />
+          <entry key="JAVA" value="17" />
+          <entry key="Kotlin" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="64" />
-          <entry key="java" value="785" />
-          <entry key="kt" value="1" />
+          <entry key="html" value="299" />
+          <entry key="java" value="910" />
+          <entry key="kt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="64" />
-          <entry key="JAVA" value="785" />
-          <entry key="Kotlin" value="1" />
+          <entry key="HTML" value="299" />
+          <entry key="JAVA" value="910" />
+          <entry key="Kotlin" value="2" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/controllers/CustomersController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="76" column="9" lean-forward="true" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
+            <state relative-caret-position="-1210">
+              <caret line="186" lean-forward="true" selection-start-line="186" selection-end-line="186" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3697#3698#0" expanded="true" />
-                <element signature="e#3729#3730#0" expanded="true" />
-                <element signature="e#4057#4058#0" expanded="true" />
-                <element signature="e#4091#4092#0" expanded="true" />
+                <element signature="e#5769#5770#0" expanded="true" />
+                <element signature="e#5818#5819#0" expanded="true" />
+                <element signature="e#6191#6192#0" expanded="true" />
+                <element signature="e#6239#6240#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/customer_page.html">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="27" column="45" lean-forward="true" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
+            <state relative-caret-position="255">
+              <caret line="40" column="46" lean-forward="true" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fast_program.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="52">
+              <caret line="29" column="10" lean-forward="true" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/new_program.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="23" column="75" selection-start-line="23" selection-start-column="75" selection-end-line="23" selection-end-column="75" />
             </state>
           </provider>
         </entry>
@@ -155,28 +192,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/form/LoginForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="18" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="18" />
-              <folding>
-                <element signature="e#140#141#0" expanded="true" />
-                <element signature="e#163#164#0" expanded="true" />
-                <element signature="e#330#331#0" expanded="true" />
-                <element signature="e#364#365#0" expanded="true" />
-                <element signature="e#412#413#0" expanded="true" />
-                <element signature="e#452#453#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/persistence/CustomerDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="204">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
@@ -219,17 +236,29 @@
         <option value="$PROJECT_DIR$/src/main/java/MainAppGymtonic.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/add_member.html" />
         <option value="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/controllers/controllers/CustomersController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/models/Program.kt" />
-        <option value="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/persistence/ProgramDAO.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/customerPage7.html" />
-        <option value="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/MainAppGymtonic.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/customers-list.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/customer_page.html" />
         <option value="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/form/LoginForm.java" />
-        <option value="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/controllers/CustomersController.java" />
         <option value="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/persistence/CustomerDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/persistence/ProgramDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/models/Program.kt" />
+        <option value="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/MainAppGymtonic.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/customer_page.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/inscription.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/modifyCustomer.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/login.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/new_program.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/index.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/fast_program.html" />
+        <option value="$PROJECT_DIR$/src/main/java/epf/projectgymtonic/controllers/CustomersController.java" />
       </list>
     </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
@@ -253,7 +282,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -285,15 +315,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="epf" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="project_gymtonic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GymTonic" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="epf" type="462c0819:PsiDirectoryNode" />
               <item name="projectgymtonic" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -302,7 +323,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="epf" type="462c0819:PsiDirectoryNode" />
               <item name="projectgymtonic" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -312,7 +332,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="epf" type="462c0819:PsiDirectoryNode" />
               <item name="projectgymtonic" type="462c0819:PsiDirectoryNode" />
               <item name="form" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -322,7 +341,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="epf" type="462c0819:PsiDirectoryNode" />
               <item name="projectgymtonic" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -332,7 +350,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="epf" type="462c0819:PsiDirectoryNode" />
               <item name="projectgymtonic" type="462c0819:PsiDirectoryNode" />
               <item name="persistence" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -349,7 +366,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="project_gymtonic" type="b2602c69:ProjectViewProjectNode" />
@@ -357,8 +374,8 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="project_gymtonic" type="b2602c69:ProjectViewProjectNode" />
@@ -368,22 +385,18 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="project_gymtonic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537260427309" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539346220864" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../GymTonic_rom1" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -391,8 +404,13 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\romai\Desktop\EPF\5A\Projet Java\GymTonic\src\main\resources\static\assets\img" />
       <recent name="C:\Users\romai\Desktop\EPF\5A\Projet Java\GymTonic\src\main\java\epf\projectgymtonic\persistence" />
       <recent name="C:\Users\romai\Desktop\EPF\5A\Projet Java\GymTonic\src\main\java\epf\projectgymtonic\models" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\romai\Desktop\EPF\5A\Projet Java\GymTonic\src\main\java\epf\projectgymtonic\models" />
+      <recent name="C:\Users\romai\Desktop\EPF\5A\Projet Java\GymTonic\src\main\java\epf\projectgymtonic\persistence" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -410,7 +428,7 @@
   <component name="RunManager">
     <configuration name="MainAppGymtonic" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="epf.projectgymtonic.MainAppGymtonic" />
-      <module name="GymTonic" />
+      <module name="project_gymtonic" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -431,23 +449,29 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1536673554069</updated>
+      <workItem from="1539333305695" duration="4306000" />
+      <workItem from="1539520661082" duration="6373000" />
     </task>
     <servers />
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="14378000" />
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20738254" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1641791" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.32765958" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.1347207" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.2537961" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -456,6 +480,9 @@
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50053304" side_tool="true" weight="0.3286334" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3286334" />
+      <window_info anchor="bottom" id="Spring" order="11" />
+      <window_info anchor="bottom" id="Java Enterprise" order="12" />
+      <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -463,8 +490,13 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="7" visible="true" weight="0.06308725" />
+      <window_info anchor="right" id="Maven Projects" order="7" visible="true" weight="0.014392324" />
+      <window_info anchor="right" id="Database" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
     </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -486,19 +518,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/models/Program.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/add_promotion.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/add_promotion.html" />
     <entry file="file://$PROJECT_DIR$/GymTonic.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="271">
@@ -506,23 +526,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/persistence/ProgramDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/add_member.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-578">
-          <caret line="23" column="18" lean-forward="true" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/add_member.html" />
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4046">
@@ -530,86 +534,158 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/customers-list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="21" column="39" lean-forward="true" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/customer_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="27" column="45" lean-forward="true" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/models/Customer.kt">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/customers-list.html" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/controllers/LoginController.java" />
+    <entry file="file://$PROJECT_DIR$/../GymTonic_rom1/src/main/java/epf/projectgymtonic/persistence/ProgramAttributionDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="13" column="7" lean-forward="true" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/MainAppGymtonic.java">
+    <entry file="file://$PROJECT_DIR$/../GymTonic_rom1/src/main/java/epf/projectgymtonic/persistence/GymTonicProgramDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-132">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="15" column="49" lean-forward="true" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/controllers/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/form/LoginForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="18" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="18" />
-          <folding>
-            <element signature="e#140#141#0" expanded="true" />
-            <element signature="e#163#164#0" expanded="true" />
-            <element signature="e#330#331#0" expanded="true" />
-            <element signature="e#364#365#0" expanded="true" />
-            <element signature="e#412#413#0" expanded="true" />
-            <element signature="e#452#453#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/controllers/CustomersController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="76" column="9" lean-forward="true" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3697#3698#0" expanded="true" />
-            <element signature="e#3729#3730#0" expanded="true" />
-            <element signature="e#4057#4058#0" expanded="true" />
-            <element signature="e#4091#4092#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/persistence/CustomerDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="323">
+          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/persistence/ProgramDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/persistence/GymTonicProgramDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/persistence/ProgramAttributionDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/models/Program.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/customers_list.html" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/models/GymTonicProgram.kt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/models/Customer.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="13" column="7" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/MainAppGymtonic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1666">
+          <caret line="112" column="1" selection-start-line="112" selection-start-column="1" selection-end-line="112" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/models/ProgramAttribution.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/admin_page.html" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/customer_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/error.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="87" lean-forward="true" selection-start-line="33" selection-start-column="87" selection-end-line="33" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/inscription.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="79" lean-forward="true" selection-start-line="36" selection-start-column="79" selection-end-line="36" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/modifyCustomer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="22" column="131" selection-start-line="22" selection-start-column="131" selection-end-line="22" selection-end-column="131" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/form/LoginForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/new_program.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="23" column="75" selection-start-line="23" selection-start-column="75" selection-end-line="23" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/fast_program.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="29" column="10" lean-forward="true" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="40" column="46" lean-forward="true" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/epf/projectgymtonic/controllers/CustomersController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1210">
+          <caret line="186" lean-forward="true" selection-start-line="186" selection-end-line="186" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5769#5770#0" expanded="true" />
+            <element signature="e#5818#5819#0" expanded="true" />
+            <element signature="e#6191#6192#0" expanded="true" />
+            <element signature="e#6239#6240#0" expanded="true" />
           </folding>
         </state>
       </provider>

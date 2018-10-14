@@ -19,7 +19,7 @@
         <div class="collapse navbar-collapse"
              id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item" role="presentation" th:if="${c.role == 1}"><a class="nav-link active" th:href="@{/customerPage}">Page perso</a></li>
+                <li class="nav-item" role="presentation" th:if="${c.role == 1}"><a class="nav-link active" th:href="@{/customerPage}">Mon compte</a></li>
                 <li class="nav-item" role="presentation" th:if="${c.role == 2}"><a class="nav-link active" th:href="@{/adminPage}">Page admin</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link active" th:href="@{/exit}">Déconnexion</a></li>
 
@@ -36,14 +36,14 @@
 
         <table class="table table-bordered table-striped table-condensed">
             <tr>
-                <th>Index du programme</th>
-                <th>Identifiant</th>
-                <th>Mon programme</th>
+                <th>Programme</th>
+                <th>Description</th>
+                <th>Illustration</th>
             </tr>
             <tr th:each="p : ${p}">
-                <td th:text="${p.id}"></td>
-                <td th:text="${p.mail}"></td>
                 <td th:text="${p.proposedProgram}"></td>
+                <td th:text="${p.description}"></td>
+                <td><img th:src="${p.image}" alt="programme " width="20%" height="20%"/></td>
             </tr>
         </table>
         <div class="col-xs-4">
