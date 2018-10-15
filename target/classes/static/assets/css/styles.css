@@ -1,0 +1,68 @@
+body {
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+#promo {
+  text-align:center;
+  padding:120px;
+  background:url(../../assets/img/salle.jpg);
+  background-size:cover;
+}
+
+
+#promo .jumbotron {
+  border-radius:20px;
+  padding:40px;
+  background-color:rgba(255,255,255,0.75);
+  max-width:800px;
+  margin:0 auto;
+}
+
+
+.site-section {
+  text-align:center;
+  padding:51px 0;
+}
+
+.site-section2 {
+  text-align:center;
+  padding:26px 0;
+}
+
+.site-section3 {
+  text-align:center;
+  padding:26px 0;
+}
+
+#welcome p {
+  max-width:800px;
+  font-size:20px;
+  margin:0 auto;
+}
+
+.fa.fa-euro {
+  font-size:40px;
+}
+
+.fa.fa-th {
+  font-size:40px;
+}
+
+.fa.fa-key {
+  font-size:40px;
+}
+
+#other .item {
+  margin-top:36px;
+}
+
+table {
+    border-collapse: collapse;
+    }
+
+thead, tfoot{
+    background-color: RGB(168,197,36);
+    color: #FFF;
+    text-transform: uppercase;
+}
