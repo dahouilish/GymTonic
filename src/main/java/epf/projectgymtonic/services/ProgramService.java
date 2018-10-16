@@ -70,8 +70,6 @@ public class ProgramService {
         program.setProposedProgram(gymTonicProgram.getName());
         program.setDescription(gymTonicProgram.getDescription());
         program.setImage(gymTonicProgram.getImage());
-        //TODO:
-        System.out.println(program.getImage());
 
         // If the user is already registered
         if (!fastProgram) {

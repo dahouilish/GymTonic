@@ -9,7 +9,6 @@ import epf.projectgymtonic.persistence.ProgramAttributionDAO;
 import epf.projectgymtonic.persistence.ProgramDAO;
 import epf.projectgymtonic.services.DisplayServices;
 import epf.projectgymtonic.services.ProgramService;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -190,10 +189,7 @@ public class CustomersController {
         return "redirect:/";
     }
 
-    @GetMapping("/error")
-    public String displayError() {
-        return "error";
-    }
+    /** WS Modify customer already in database */
 
     @GetMapping("/modifyCustomer")
     public String modifyCustomerForm(Model model, String mail){
