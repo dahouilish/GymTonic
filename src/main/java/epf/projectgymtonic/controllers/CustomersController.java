@@ -139,6 +139,7 @@ public class CustomersController {
             displayServices.displayAlertMessage("Erreur","Vous tentez d'accéder à une page non autorisée");
             return "redirect:/login";
         }
+        model.addAttribute("fast", false);
         return "new_program";
     }
 
@@ -189,10 +190,10 @@ public class CustomersController {
         return "redirect:/";
     }
 
-    /*@GetMapping("/error")
+    @GetMapping("/error")
     public String displayError() {
         return "error";
-    }*/
+    }
 
     @GetMapping("/modifyCustomer")
     public String modifyCustomerForm(Model model, String mail){
