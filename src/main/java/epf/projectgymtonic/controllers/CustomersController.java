@@ -132,7 +132,7 @@ public class CustomersController {
 
     @GetMapping("/newProgram")
     public String addProgramForm(Model model) {
-        model.addAttribute("customer", new Customer());
+        model.addAttribute("fast", false);
         return "new_program";
     }
 
@@ -143,8 +143,8 @@ public class CustomersController {
 
     @GetMapping("/fastProgram")
     public String addFastProgramForm(Model model) {
-        model.addAttribute("customer", new Customer());
-        return "fast_program";
+        model.addAttribute("fast", true);
+        return "new_program";
     }
 
     @PostMapping("/fastProgram")
@@ -163,7 +163,6 @@ public class CustomersController {
         String choice2 = "";
         String choice3 = "";
 
-        System.out.println("yes 3");
         if (program.getImc() < 18.5F) {
             choice1 = "A1";
         }
