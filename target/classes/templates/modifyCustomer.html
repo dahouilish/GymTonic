@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier informations perso</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+<nav class="navbar navbar-light navbar-expand-md">
+    <div class="container-fluid"><a class="navbar-brand" th:href="@{/}"><strong>GymTonic</strong></a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse"
+             id="navcol-1">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item" role="presentation"><a class="nav-link active" th:href="@{/customer_page}">Mon compte</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/login}">Se connecter</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div id="promo" style="padding:180px;">
+    <div class="jumbotron">
+        <h1>Modifiez vos informations personnelles</h1>
+
+        <form action="#" th:action="@{/modifyCustomer}" th:object="${customer}" method="post">
+            <div class="form-group">
+                <label for="firstName"></label>
+                <input type="text" class="input-lg form-control" id="firstName"
+                       th:field="*{firstName}" placeholder="Prénom" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName"></label>
+                <input type="text" id="lastName" class="input-lg form-control"
+                       th:field="*{lastName}" placeholder="Nom" required>
+            </div>
+            <div class="form-group">
+
+                <label for="mail"></label>
+                <input type="email" id="mail" class="input-lg form-control required"
+                       th:field="*{mail}" placeholder="Mail" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" class="input-lg form-control"
+                       th:field="*{password}" placeholder="Mot de passe" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Date de naissance</label>
+                <input type="date" id="date" class="input-lg form-control"
+                       th:field="*{date}" placeholder="Date" required>
+            </div>
+
+            <div class="form-group">
+                <label>Sexe : </label>
+                <SELECT name="gender" size="1" required>
+                    <OPTION>Homme</OPTION>
+                    <OPTION>Femme</OPTION>
+                </SELECT>
+
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-lg btn-primary">Confirmer modifications</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

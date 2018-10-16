@@ -139,7 +139,6 @@ public class CustomersController {
             displayServices.displayAlertMessage("Erreur","Vous tentez d'accéder à une page non autorisée");
             return "redirect:/login";
         }
-        //model.addAttribute("program", new Program());
         return "new_program";
     }
 
@@ -151,13 +150,12 @@ public class CustomersController {
 
     @GetMapping("/fastProgram")
     public String addFastProgramForm(Model model) {
-        //model.addAttribute("customer", new Customer());
-        return "fast_program";
+        model.addAttribute("fast", true);
+        return "new_program";
     }
 
     @PostMapping("/fastProgram")
     public String addFastProgram(Program program, Model model) {
-
         return programService.newProgram(programAttributionDao, gymTonicProgramDao, program, true, programDao);
     }
 
