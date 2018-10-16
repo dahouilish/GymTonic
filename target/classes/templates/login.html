@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription</title>
+    <title>Se connecter</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
@@ -18,7 +18,7 @@
         <div class="collapse navbar-collapse"
              id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/customer_page}">Mon compte</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/customerPage}">Mon compte</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/inscription}">Inscription</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link active" th:href="@{/login}">Se connecter</a></li>
             </ul>
@@ -29,12 +29,12 @@
     <div class="jumbotron" style="width:520px">
         <h1>Rentrez vos identifiants !</h1>
         <form th:action="@{/login}" th:object="${loginForm}" method="post">
-            <div class="form-group">
+            <div class="form-group" align="left">
                 <label for="mail">Mail</label>
                 <input type="text" class="input-lg form-control" id="mail" name="email"
                        placeholder="Mail" required autofocus="autofocus">
             </div>
-            <div class="form-group">
+            <div class="form-group" align="left">
                 <label for="password">Mot de passe</label>
                 <input type="password" id="password" name="password" class="input-lg form-control"
                        placeholder="Mot de passe" required>
@@ -50,7 +50,15 @@
 </div>
 <!-- /.row -->
 
-
+<div class="footer-basic">
+    <footer>
+        <div class="social"><a href="https://www.instagram.com/" target=_blank><i class="icon ion-social-instagram"></i></a><a href="https://www.snapchat.com/" target="_blank"><i class="icon ion-social-snapchat"></i></a><a href="https://twitter.com/" target=_blank><i class="icon ion-social-twitter"></i></a><a href="https://www.facebook.com/" target="_blank"><i class="icon ion-social-facebook"></i></a></div>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Home</a></li>
+        </ul>
+        <p class="copyright">GymTonic © 2018</p>
+    </footer>
+</div>
 
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>

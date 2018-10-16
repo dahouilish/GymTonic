@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription</title>
+    <title th:if="${c.role == 1}">Page perso</title>
+    <title th:if="${c.role == 2}">Page admin</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
@@ -21,7 +22,7 @@
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item" role="presentation" th:if="${c.role == 1}"><a class="nav-link active" th:href="@{/customerPage}">Mon compte</a></li>
                 <li class="nav-item" role="presentation" th:if="${c.role == 2}"><a class="nav-link active" th:href="@{/adminPage}">Page admin</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link active" th:href="@{/exit}">Déconnexion</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/exit}">Déconnexion</a></li>
 
             </ul>
         </div>
@@ -43,7 +44,7 @@
             <tr th:each="p : ${p}">
                 <td th:text="${p.proposedProgram}"></td>
                 <td th:text="${p.description}"></td>
-                <td><img th:src="${p.image}" alt="programme " width="20%" height="20%"/></td>
+                <td><img th:src="@{${p.image}}" alt="programme " width="20%" height="20%"/></td>
             </tr>
         </table>
         <div class="col-xs-4">
@@ -58,7 +59,11 @@
     </div>
 </div>
     <div class="container site-section3" id="welcome">
+        &nbsp;
+        &nbsp;
     <h1>Vos informations personelles</h1>
+        &nbsp;
+        &nbsp;
     <p>Bonjour <b th:text="${c.firstName}"></b>, voici vos informations personelles :</p>
     <table class="table table-bordered table-striped table-condensed">
         <tr>
@@ -91,7 +96,7 @@
 
 <div id="wrapper2" th:if="${c.role == 2}">
     <div id="promo2">
-        <div class="jumbotron" style="max-width:1200px">
+        <div class="jumbotron" style="max-width:1200px" align="center">
             <h1>Voici la liste des personnes inscrites aux programmes : </h1>
             &nbsp;
              <table class="table table-bordered table-striped table-condensed">
@@ -106,7 +111,6 @@
                     <th></th>
                 </tr>
                 <tr th:each="user : ${data}" th:if="${user.role != 2}">
-                 <td th:text="${user.id}"></td>
                  <td th:text="${user.firstName}"></td>
                     <td th:text="${user.lastName}"></td>
                     <td th:text="${user.mail}"></td>
@@ -127,13 +131,9 @@
 
 <div class="footer-basic">
     <footer>
-        <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+        <div class="social"><a href="https://www.instagram.com/" target=_blank><i class="icon ion-social-instagram"></i></a><a href="https://www.snapchat.com/" target="_blank"><i class="icon ion-social-snapchat"></i></a><a href="https://twitter.com/" target=_blank><i class="icon ion-social-twitter"></i></a><a href="https://www.facebook.com/" target="_blank"><i class="icon ion-social-facebook"></i></a></div>
         <ul class="list-inline">
             <li class="list-inline-item"><a href="#">Home</a></li>
-            <li class="list-inline-item"><a href="#">Services</a></li>
-            <li class="list-inline-item"><a href="#">About</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
         </ul>
         <p class="copyright">GymTonic © 2018</p>
     </footer>
