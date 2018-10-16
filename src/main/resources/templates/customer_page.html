@@ -22,7 +22,7 @@
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item" role="presentation" th:if="${c.role == 1}"><a class="nav-link active" th:href="@{/customerPage}">Mon compte</a></li>
                 <li class="nav-item" role="presentation" th:if="${c.role == 2}"><a class="nav-link active" th:href="@{/adminPage}">Page admin</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link active" th:href="@{/exit}">Déconnexion</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/exit}">Déconnexion</a></li>
 
             </ul>
         </div>
@@ -59,7 +59,11 @@
     </div>
 </div>
     <div class="container site-section3" id="welcome">
+        &nbsp;
+        &nbsp;
     <h1>Vos informations personelles</h1>
+        &nbsp;
+        &nbsp;
     <p>Bonjour <b th:text="${c.firstName}"></b>, voici vos informations personelles :</p>
     <table class="table table-bordered table-striped table-condensed">
         <tr>
@@ -107,7 +111,6 @@
                     <th></th>
                 </tr>
                 <tr th:each="user : ${data}" th:if="${user.role != 2}">
-                 <td th:text="${user.id}"></td>
                  <td th:text="${user.firstName}"></td>
                     <td th:text="${user.lastName}"></td>
                     <td th:text="${user.mail}"></td>
@@ -128,13 +131,9 @@
 
 <div class="footer-basic">
     <footer>
-        <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+        <div class="social"><a href="https://www.instagram.com/" target=_blank><i class="icon ion-social-instagram"></i></a><a href="https://www.snapchat.com/" target="_blank"><i class="icon ion-social-snapchat"></i></a><a href="https://twitter.com/" target=_blank><i class="icon ion-social-twitter"></i></a><a href="https://www.facebook.com/" target="_blank"><i class="icon ion-social-facebook"></i></a></div>
         <ul class="list-inline">
             <li class="list-inline-item"><a href="#">Home</a></li>
-            <li class="list-inline-item"><a href="#">Services</a></li>
-            <li class="list-inline-item"><a href="#">About</a></li>
-            <li class="list-inline-item"><a href="#">Terms</a></li>
-            <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
         </ul>
         <p class="copyright">GymTonic © 2018</p>
     </footer>
