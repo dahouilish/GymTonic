@@ -48,12 +48,12 @@ public class MainAppGymtonic {
     public void init() {
         /**UTILISATEURS TEST*/
         //customerDao.deleteAll();//TODO supprimer cette ligne à la fin
-        customerDao.save(new Customer(null, "David", "Bernadet", "david.bernadet@yahoo.fr", "david", "1996-03-02", "Homme", 1, false));
-        customerDao.save(new Customer(null, "Romain", "Cogen", "romain.cogen@epfedu.fr", "romain", "1996-12-24", "Homme", 1, false));
-        customerDao.save(new Customer(null, "Lancelot", "Du Lac", "lancelot.dulac@epfedu.fr", "lance", "1996-05-14", "Homme", 1, false));
+        customerDao.save(new Customer("David", "Bernadet", "david.bernadet@yahoo.fr", "david", "1996-03-02", "Homme", 1));
+        customerDao.save(new Customer("Romain", "Cogen", "romain.cogen@epfedu.fr", "romain", "1996-12-24", "Homme", 1));
+        customerDao.save(new Customer("Lancelot", "Du Lac", "lancelot.dulac@epfedu.fr", "lance", "1996-05-14", "Homme", 1));
 
         /**ADMIN*/
-        customerDao.save(new Customer(null, "admin", "admin", "admin", "admin", "admin", "admin", 2, false));
+        customerDao.save(new Customer("admin", "admin", "admin", "admin", "admin", "admin", 2));
 
         /**PROGRAMMES GYMTONIC*/
         gymTonicProgramDao.save(new GymTonicProgram(null, "DG", "-FROM DAVID TO GOLIATH-", "Dessiner ses muscles. 8 à 12 répétitions par séries. " +

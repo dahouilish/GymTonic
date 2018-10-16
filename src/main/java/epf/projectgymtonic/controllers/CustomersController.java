@@ -9,11 +9,14 @@ import epf.projectgymtonic.persistence.ProgramAttributionDAO;
 import epf.projectgymtonic.persistence.ProgramDAO;
 import epf.projectgymtonic.services.DisplayServices;
 import epf.projectgymtonic.services.ProgramService;
+import epf.projectgymtonic.services.SaveLogService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Date;
 
 /**
  * @author David Bernadet, Romain Cogen, Lancelot Deguerre on 10/09/2018
@@ -28,6 +31,9 @@ public class CustomersController {
     //Services
     private DisplayServices displayServices = new DisplayServices();
     private ProgramService programService = new ProgramService();
+    private SaveLogService saveLogService = new SaveLogService();
+    //Date et Heure
+    private Date date = new Date();
 
     public CustomersController(CustomerDAO _customerDao, ProgramDAO _programDao,
                                ProgramAttributionDAO _programAttributionDao, GymTonicProgramDAO _gymTonicProgramDao) {
@@ -78,7 +84,7 @@ public class CustomersController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String verifyLogin(@ModelAttribute(name = "loginForm") LoginForm loginForm, Model model) {
+    public String verifyLogin(@ModelAttribute(name = "loginForm") LoginForm loginForm, Model model) throws IOException {
 
         String email = loginForm.getMail();
         String password = loginForm.getPassword();
@@ -100,6 +106,7 @@ public class CustomersController {
             if (currentCustomer.getRole() == 1 || currentCustomer.getRole() == 2) {
                 //Program program = programsDao.selectTemporaryProgram();
                 //program.setMail(LoginForm.getMail());
+                saveLogService.saveNewCustomer(date, "Connexion", currentCustomer);
                 return "redirect:/customerPage";
             }else{
                 return "redirect:/";
@@ -120,13 +127,14 @@ public class CustomersController {
     }
 
     @PostMapping("/inscription")
-    public String addCustomer(Customer customer, Model model) {
+    public String addCustomer(Customer customer, Model model) throws IOException {
         //In case the mail is already used
         if (customerDao.findCustomerByMail(customer.getMail()) != null) {
             displayServices.displayAlertMessage("Erreur","L'adresse mail est déjà utilisée.");
             return "redirect:/inscription";
         }
         customerDao.save(customer);
+        saveLogService.saveNewCustomer(date, "Inscription", customer);
         displayServices.displayAlertMessage("Validé","Vous êtes inscrit, bienvenue " + customer.getFirstName() + " !");
         return "redirect:/login";
     }
