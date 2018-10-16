@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription</title>
+    <title th:if="${c.role == 1}">Page perso</title>
+    <title th:if="${c.role == 2}">Page admin</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
@@ -43,7 +44,7 @@
             <tr th:each="p : ${p}">
                 <td th:text="${p.proposedProgram}"></td>
                 <td th:text="${p.description}"></td>
-                <td><img th:src="${p.image}" alt="programme " width="20%" height="20%"/></td>
+                <td><img th:src="@{${p.image}}" alt="programme " width="20%" height="20%"/></td>
             </tr>
         </table>
         <div class="col-xs-4">

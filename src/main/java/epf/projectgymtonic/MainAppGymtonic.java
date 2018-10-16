@@ -57,18 +57,18 @@ public class MainAppGymtonic {
 
         /**PROGRAMMES GYMTONIC*/
         gymTonicProgramDao.save(new GymTonicProgram(null, "DG", "-FROM DAVID TO GOLIATH-", "Dessiner ses muscles. 8 à 12 répétitions par séries. " +
-                "8 à 12 séries par groupe musculaire. Charges entre 60% et 75% de la charge maximale. Rythme d'execution lent.", "/img/goliath.jpg"));
+                "8 à 12 séries par groupe musculaire. Charges entre 60% et 75% de la charge maximale. Rythme d'execution lent.", "/assets/img/goliath.jpg"));
         gymTonicProgramDao.save(new GymTonicProgram(null, "F", "-FAST SUMMER BODY-", "Renforcement musculaire pour perdre le gras. " +
-                "20 à 30 répétitions par séries. 5 à 10 séries par groupe musculaire. Charges entre 50% et 60% de la charge maximale. Rythme d'éxecution rapide.", "/img/summer.jpg"));
+                "20 à 30 répétitions par séries. 5 à 10 séries par groupe musculaire. Charges entre 50% et 60% de la charge maximale. Rythme d'éxecution rapide.", "/assets/img/summer.jpg"));
         gymTonicProgramDao.save(new GymTonicProgram(null, "C", "CONSULTE TON MEDECIN !", "Votre volonté de perdre du poids est inquiétante compte tenu de votre état actuel.", "/img/consulte.jpg"));
         gymTonicProgramDao.save(new GymTonicProgram(null, "D", "-DECRASSAGE EXPRESS-", "Remise en forme. Routine quotidienne à rélaiser : " +
-                "10 min d'échauffement puis : Air squats, Pompes, Curl, Rowing, Crunch, Planche, Burpees (10 à 20 répétitions, 1 min de repos entre chaque exercice, 1 fois).", "/img/forme.jpg"));
+                "10 min d'échauffement puis : Air squats, Pompes, Curl, Rowing, Crunch, Planche, Burpees (10 à 20 répétitions, 1 min de repos entre chaque exercice, 1 fois).", "/assets/img/forme.jpg"));
         gymTonicProgramDao.save(new GymTonicProgram(null, "S", "-SAHARA DRY-", "Programme de sèche. 12 à 15 répétitions par séries. " +
-                "5 à 10 séries par groupe musculaire. Charges à 50% de la charge maximale. Rythme d'éxecution rapide. 2 séances de 60 min de cardio par semaine.", "/img/dry.jpg"));
+                "5 à 10 séries par groupe musculaire. Charges à 50% de la charge maximale. Rythme d'éxecution rapide. 2 séances de 60 min de cardio par semaine.", "/assets/img/dry.jpg"));
         gymTonicProgramDao.save(new GymTonicProgram(null, "B", "-OBJECTIF BULLDOZER-", "Gain en puissance. 3 à 6 répétitions par séries. " +
-                "3 à 5 séries par groupe musculaire. Charges entre 80% et 90% de la charge maximale. Rythme d'éxecution maximal.", "/img/wrecking_ball.jpg"));
+                "3 à 5 séries par groupe musculaire. Charges entre 80% et 90% de la charge maximale. Rythme d'éxecution maximal.", "/assets/img/wrecking_ball.jpg"));
         gymTonicProgramDao.save(new GymTonicProgram(null, "FG", "-FONTE DES GLACES-", "Perte de poids. 30 min de cardio quotidien :" +
-                "Vélo home-trainer, marche.", "/img/fonte.jpg"));
+                "Vélo home-trainer, marche.", "/assets/img/fonte.jpg"));
 
         /**LIENS PROGRAMMES_GYMTONIC--CHAINES_DE_CHOIX*/
         //_______A1 (IMC : maigreur)
@@ -104,9 +104,9 @@ public class MainAppGymtonic {
 
         /**PROGRAMMES TEST*/
         programDao.save(new Program(null, "david.bernadet@yahoo.fr", 70, 1.80F, null, "3-4",
-                "muscle", "A1_B2_C1", "-FAST SUMMER BODY-", null, null));
+                "muscle", "A1_B2_C1", "-FAST SUMMER BODY-", null, "/assets/img/goliath.jpg"));
         programDao.save(new Program(null, "david.bernadet@yahoo.fr", 70, 1.80F, null, "3-4",
-                "endurance", "A1_B1_C3", "-FROM DAVID TO GOLIATH-", null, null));
+                "endurance", "A1_B1_C3", "-FROM DAVID TO GOLIATH-", null, "/assets/img/salle.jpg"));
         programDao.save(new Program(null, "romain.cogen@epfedu.fr", 68, 1.80F, null, "1-2",
                 "muscle", "A2_B3_C1", "T'es déjà parfait frr", null, null));
     }

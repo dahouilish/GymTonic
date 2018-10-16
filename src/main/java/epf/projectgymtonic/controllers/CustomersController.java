@@ -2,14 +2,14 @@ package epf.projectgymtonic.controllers;
 
 import epf.projectgymtonic.models.Customer;
 import epf.projectgymtonic.form.LoginForm;
-import epf.projectgymtonic.models.GymTonicProgram;
 import epf.projectgymtonic.models.Program;
-import epf.projectgymtonic.models.ProgramAttribution;
 import epf.projectgymtonic.persistence.CustomerDAO;
 import epf.projectgymtonic.persistence.GymTonicProgramDAO;
 import epf.projectgymtonic.persistence.ProgramAttributionDAO;
 import epf.projectgymtonic.persistence.ProgramDAO;
-import org.jetbrains.annotations.NotNull;
+import epf.projectgymtonic.services.DisplayServices;
+import epf.projectgymtonic.services.ProgramService;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -26,8 +26,9 @@ public class CustomersController {
     private final ProgramDAO programDao;
     private final ProgramAttributionDAO programAttributionDao;
     private final GymTonicProgramDAO gymTonicProgramDao;
-    //private boolean test = false;
-    //private String currentMail;
+    //Services
+    private DisplayServices displayServices = new DisplayServices();
+    private ProgramService programService = new ProgramService();
 
     public CustomersController(CustomerDAO _customerDao, ProgramDAO _programDao,
                                ProgramAttributionDAO _programAttributionDao, GymTonicProgramDAO _gymTonicProgramDao) {
@@ -35,6 +36,7 @@ public class CustomersController {
         this.programDao = _programDao;
         this.programAttributionDao = _programAttributionDao;
         this.gymTonicProgramDao = _gymTonicProgramDao;
+
     }
 
     /*
@@ -50,7 +52,7 @@ public class CustomersController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String showLoginForm() {
         if (LoginForm.getMail() != null) {
-            displayAlertMessage("Erreur","Vous etes déjà connecté");
+            displayServices.displayAlertMessage("Erreur","Vous etes déjà connecté");
             return "redirect:/";
         }
         return "login";
@@ -65,13 +67,13 @@ public class CustomersController {
         //currentCustomer.setAuthenticated(false);
         //System.out.println("le gus est : " + currentCustomer.getAuthenticated());
         if (LoginForm.getMail() == null){
-            displayAlertMessage("Validé","Vous n'etes pas encore connecté");
+            displayServices.displayAlertMessage("Validé","Vous n'etes pas encore connecté");
             return "redirect:/";
         }
 
         loginForm.setEmail(null);
         loginForm.setPassword(null);
-        displayAlertMessage("Validé","Vous vous êtes déconnecté !");
+        displayServices.displayAlertMessage("Validé","Vous vous êtes déconnecté !");
         //customerDao.deleteAll();
         return "redirect:/";
     }
@@ -85,7 +87,7 @@ public class CustomersController {
         Customer currentCustomer = customerDao.findCustomerByMail(email);
         //in case the password and the mail do not match
         if (currentCustomer == null) {
-            displayAlertMessage("Erreur","L'adresse mail et/ou le mot de passe est invalide");
+            displayServices.displayAlertMessage("Erreur","L'adresse mail et/ou le mot de passe est invalide");
             loginForm.setEmail(null);
             loginForm.setPassword(null);
             return "login";
@@ -104,7 +106,7 @@ public class CustomersController {
                 return "redirect:/";
             }
         }
-        displayAlertMessage("Erreur","L'adresse mail et/ou le mot de passe est invalide");
+        displayServices.displayAlertMessage("Erreur","L'adresse mail et/ou le mot de passe est invalide");
         return "login";
     }
 
@@ -112,7 +114,7 @@ public class CustomersController {
     public String addUserForm(Model model) {
         model.addAttribute("customer", new Customer());
         if (LoginForm.getMail() != null) {
-            displayAlertMessage("Erreur","Vous êtes déjà inscrit ! : " + LoginForm.getMail());
+            displayServices.displayAlertMessage("Erreur","Vous êtes déjà inscrit ! : " + LoginForm.getMail());
             return "redirect:/";
         }
         return "inscription";
@@ -122,106 +124,41 @@ public class CustomersController {
     public String addCustomer(Customer customer, Model model) {
         //In case the mail is already used
         if (customerDao.findCustomerByMail(customer.getMail()) != null) {
-            displayAlertMessage("Erreur","L'adresse mail est déjà utilisée.");
+            displayServices.displayAlertMessage("Erreur","L'adresse mail est déjà utilisée.");
             return "redirect:/inscription";
         }
         customerDao.save(customer);
-        displayAlertMessage("Validé","Vous êtes inscrit, bienvenue " + customer.getFirstName() + " !");
+        displayServices.displayAlertMessage("Validé","Vous êtes inscrit, bienvenue " + customer.getFirstName() + " !");
         return "redirect:/login";
     }
 
     @GetMapping("/newProgram")
     public String addProgramForm(Model model) {
-        model.addAttribute("customer", new Customer());
+
+        if (LoginForm.getMail() == null){ //in case the user isn't logged in
+            displayServices.displayAlertMessage("Erreur","Vous tentez d'accéder à une page non autorisée");
+            return "redirect:/login";
+        }
+        //model.addAttribute("program", new Program());
         return "new_program";
     }
 
     @PostMapping("/newProgram")
     public String addProgram(Program program, Model model) {
-        return newProgram(program, false);
+
+        return programService.newProgram(programAttributionDao, gymTonicProgramDao, program, false, programDao);
     }
 
     @GetMapping("/fastProgram")
     public String addFastProgramForm(Model model) {
-        model.addAttribute("customer", new Customer());
+        //model.addAttribute("customer", new Customer());
         return "fast_program";
     }
 
     @PostMapping("/fastProgram")
     public String addFastProgram(Program program, Model model) {
-        return newProgram(program, true);
-    }
 
-    @NotNull
-    private String newProgram(Program program, Boolean fastProgram) {
-        if (!fastProgram) {
-            program.setMail(LoginForm.getMail());
-        }
-        program.setImc(program.getWeight() / (program.getHeight() * program.getHeight())); //IMC = Poids / Taille^2
-
-        String choice1 = "";
-        String choice2 = "";
-        String choice3 = "";
-
-        System.out.println("yes 3");
-        if (program.getImc() < 18.5F) {
-            choice1 = "A1";
-        }
-        else if ((program.getImc() >= 18.5F) & (program.getImc() <= 25.0F)) {
-            choice1 = "A2";
-        }
-        else if (program.getImc() > 25.0F) {
-            choice1 = "A3";
-        }
-        switch (program.getFrequence()) {
-            case "0 fois":
-                choice2 = "B1";
-                break;
-            case "1 à 2 fois":
-                choice2 = "B2";
-                break;
-            case "3 à 7 fois":
-                choice2 = "B3";
-                break;
-        }
-
-        switch (program.getGoal()) {
-            case "Prise de masse":
-                choice3 = "C1";
-                break;
-            case "Renforcement musculaire":
-                choice3 = "C2";
-                break;
-            case "Perte de poids":
-                choice3 = "C3";
-                break;
-        }
-
-        program.setChainOfChoices(choice1 + "_" + choice2 + "_" + choice3);
-
-        ProgramAttribution programAttribution = programAttributionDao.findProgramByChainOfChoices(program.getChainOfChoices());
-        GymTonicProgram gymTonicProgram = gymTonicProgramDao.findProgramByCode(programAttribution.getCode());
-
-        program.setProposedProgram(gymTonicProgram.getName());
-        program.setDescription(gymTonicProgram.getDescription());
-        program.setImage(gymTonicProgram.getImage());
-
-        if (!fastProgram) {
-            displayAlertMessage("Votre programme", gymTonicProgram.getName() + "\n\nRetrouvez les détails du programme dans votre Page perso");
-        } else {
-            displayAlertMessage("Votre programme", gymTonicProgram.getName()  + "\n\nRetrouvez les détails du programme dans votre Page perso, \n" +
-                    "Connectez-vous pour pouvoir enregistrer vos programmes.");
-        }
-
-        programDao.save(program);
-
-        if (fastProgram) {
-            //programDao.deleteTemporaryPrograms();
-            //program.setMail("temporaryUser@gymtonic.com");
-            return "redirect:/";
-        } else {
-            return "redirect:/customerPage";
-        }
+        return programService.newProgram(programAttributionDao, gymTonicProgramDao, program, true, programDao);
     }
 
     @GetMapping("/customerPage")
@@ -229,7 +166,7 @@ public class CustomersController {
 
         String m = LoginForm.getMail();
         if (m == null){ //in case the user isn't logged in
-            displayAlertMessage("Erreur","Vous tentez d'accéder à une page non autorisée");
+            displayServices.displayAlertMessage("Erreur","Vous tentez d'accéder à une page non autorisée");
             return "redirect:/login";
         }
 
@@ -250,20 +187,20 @@ public class CustomersController {
     @GetMapping("/deleteCustomer")
     public String deleteThisCustomer(String mail) {
         customerDao.deleteCustomerByMail(mail);
-        displayAlertMessage("Validé","User supprimé : " + mail);
+        displayServices.displayAlertMessage("Validé","User supprimé : " + mail);
         return "redirect:/";
     }
 
-    @GetMapping("/error")
+    /*@GetMapping("/error")
     public String displayError() {
         return "error";
-    }
+    }*/
 
     @GetMapping("/modifyCustomer")
     public String modifyCustomerForm(Model model, String mail){
 
         if (LoginForm.getMail() == null){
-            displayAlertMessage("Erreur","Vous tentez d'accéder à une page non autorisée");
+            displayServices.displayAlertMessage("Erreur","Vous tentez d'accéder à une page non autorisée");
             return "redirect:/login";
         }
         model.addAttribute("customer", customerDao.findCustomerByMail(mail));
@@ -273,17 +210,9 @@ public class CustomersController {
     @PostMapping("/modifyCustomer")
     public String submitModification(Customer customer, String mail){
         customerDao.deleteCustomerByMail(mail);
-        displayAlertMessage("Validé","Vos modifications ont bien été prises en compte");
+        displayServices.displayAlertMessage("Validé","Vos modifications ont bien été prises en compte");
         customerDao.save(customer);
         return "redirect:/";
     }
-
-    private void displayAlertMessage(String title, String message) {
-        JOptionPane pane = new JOptionPane(message, JOptionPane.INFORMATION_MESSAGE);
-        JDialog dialog = pane.createDialog(null, title);
-        dialog.setAlwaysOnTop(true);
-        dialog.setVisible(true);
-    }
-
 }
 
