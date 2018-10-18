@@ -13,8 +13,6 @@ import epf.projectgymtonic.services.SaveLogService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Date;
 
@@ -27,12 +25,11 @@ public class CustomersController {
     private final CustomerDAO customerDao;
     private final ProgramDAO programDao;
     private final ProgramAttributionDAO programAttributionDao;
-    private final GymTonicProgramDAO gymTonicProgramDao;
+    private final GymTonicProgramDAO gymTonicProgramDao; //list of all programs available
     //Services
     private DisplayServices displayServices = new DisplayServices();
     private ProgramService programService = new ProgramService();
     private SaveLogService saveLogService = new SaveLogService();
-    //Date et Heure
     private Date date = new Date();
 
     public CustomersController(CustomerDAO _customerDao, ProgramDAO _programDao,
@@ -45,13 +42,7 @@ public class CustomersController {
     }
 
     /*
-     * Ceci sera mappé sur l'URL '/users'.
-     * C'est le routeur de Spring MVC qui va détecter et appeler directement cette méthode.
-     * Il lui fournira un "modèle", auquel on pourra rajouter des attributs.
-     * Ce modèle sera ensuite forwardé à une page web (dans resources/templates).
-     * Le nom de la template est retourné par la fonction. Ici, elle appelle donc le template "users".
-     * @param model le modèle
-     * @return
+     * Web Services on this page, other services are declared in other classes.
      */
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -63,26 +54,23 @@ public class CustomersController {
         return "login";
     }
 
-    //TODO : afficher slmt si connecté !
+    // Log out
     @GetMapping(value = "/exit")
     public String exit(@ModelAttribute(name = "loginForm") LoginForm loginForm, Model model) {
         Customer currentCustomer = customerDao.findCustomerByMail(LoginForm.getMail());
-        System.out.println("le gus est : " + LoginForm.getMail());
-        //System.out.println("le gus est : " + currentCustomer.getAuthenticated());
-        //currentCustomer.setAuthenticated(false);
-        //System.out.println("le gus est : " + currentCustomer.getAuthenticated());
+
         if (LoginForm.getMail() == null){
-            displayServices.displayAlertMessage("Validé","Vous n'etes pas encore connecté");
+            displayServices.displayAlertMessage("Erreur","Vous n'etes pas encore connecté");
             return "redirect:/";
         }
-
+        // when the user log out, flush the loginForm
         loginForm.setEmail(null);
         loginForm.setPassword(null);
         displayServices.displayAlertMessage("Validé","Vous vous êtes déconnecté !");
-        //customerDao.deleteAll();
         return "redirect:/";
     }
 
+    // login in
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String verifyLogin(@ModelAttribute(name = "loginForm") LoginForm loginForm, Model model) throws IOException {
 
@@ -116,6 +104,7 @@ public class CustomersController {
 
     @GetMapping("/inscription")
     public String addUserForm(Model model) {
+        // create a new customer and link ot to the data entered in the input form
         model.addAttribute("customer", new Customer());
         if (LoginForm.getMail() != null) {
             displayServices.displayAlertMessage("Erreur","Vous êtes déjà inscrit ! : " + LoginForm.getMail());
@@ -131,6 +120,7 @@ public class CustomersController {
             displayServices.displayAlertMessage("Erreur","L'adresse mail est déjà utilisée.");
             return "redirect:/inscription";
         }
+        // save the customer in the db and in the logfile
         customerDao.save(customer);
         saveLogService.saveNewCustomer(date, "Inscription", customer);
         displayServices.displayAlertMessage("Validé","Vous êtes inscrit, bienvenue " + customer.getFirstName() + " !");
@@ -148,12 +138,14 @@ public class CustomersController {
         return "new_program";
     }
 
+    // when you are logged in and you want to create another program
     @PostMapping("/newProgram")
     public String addProgram(Program program, Model model) {
         // fastProgram = false
         return programService.newProgram(programAttributionDao, gymTonicProgramDao, program, false, programDao);
     }
 
+    // when you are NOT logged in and you want to create a program to try
     @GetMapping("/fastProgram")
     public String addFastProgramForm(Model model) {
         model.addAttribute("fast", true); // fast = true
@@ -177,10 +169,10 @@ public class CustomersController {
 
         Customer c = customerDao.findCustomerByMail(m);
         switch (c.getRole()) {
-            case 1:
+            case 1: // in case the user is a lambda user
                 model.addAttribute("c", c); //display user info
                 model.addAttribute("p", programDao.findProgramsByMail(m)); //display user program info
-            case 2:
+            case 2: // in case it's the admin
                 model.addAttribute("c", c); //injected to test role
                 model.addAttribute("data", customerDao.findAll()); //used to display all data user
             default:
@@ -196,11 +188,10 @@ public class CustomersController {
         return "redirect:/";
     }
 
-    /** WS Modify customer already in database */
-
+    //WS Modify customer already in database
     @GetMapping("/modifyCustomer")
     public String modifyCustomerForm(Model model, String mail){
-
+        // prevent non logged in users to access this area
         if (LoginForm.getMail() == null){
             displayServices.displayAlertMessage("Erreur","Vous tentez d'accéder à une page non autorisée");
             return "redirect:/login";
@@ -211,6 +202,7 @@ public class CustomersController {
 
     @PostMapping("/modifyCustomer")
     public String submitModification(Customer customer, String mail){
+        // 'update' data wanted
         customerDao.deleteCustomerByMail(mail);
         displayServices.displayAlertMessage("Validé","Vos modifications ont bien été prises en compte");
         customerDao.save(customer);
