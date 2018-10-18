@@ -16,12 +16,20 @@
 <body>
 
 <nav class="navbar navbar-light navbar-expand-md">
-    <div class="container-fluid"><a class="navbar-brand" th:href="@{/}"><strong>GymTonic</strong></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="container-fluid"><a class="navbar-brand"><strong>GymTonic</strong></a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
+                class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse"
              id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
-
-                <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/exit}">Déconnexion</a></li>
+                <li class="nav-item" role="presentation">
+                    <div th:if="${fast == false}">
+                        <a class="nav-link" th:href="@{/exit}">Déconnexion</a>
+                    </div>
+                    <div th:if="${fast == true}">
+                        <a class="nav-link" th:href="@{/login}">Se connecter</a>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
@@ -31,6 +39,7 @@
         <h1>Ajoutez un nouveau programme</h1>
         <div th:if="${fast == false}">
             <form action="#" th:action="@{/newProgram}" th:object="${program}" method="post">
+                <!--Post into newProgram if fast = false -->
                 <div class="form-group">
                     <label>Poids</label>
                     <input type="number" min="1" max="999" placeholder=" ... kg"
@@ -64,6 +73,7 @@
         </div>
         <div th:if="${fast == true}">
             <form action="#" th:action="@{/fastProgram}" th:object="${program}" method="post">
+                <!--Post into fastProgram if fast = true -->
                 <div class="form-group">
                     <label>Poids</label>
                     <input type="number" min="1" max="999" placeholder=" ... kg"
