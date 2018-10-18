@@ -22,6 +22,7 @@
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item" role="presentation" th:if="${c.role == 1}"><a class="nav-link active" th:href="@{/customerPage}">Mon compte</a></li>
                 <li class="nav-item" role="presentation" th:if="${c.role == 2}"><a class="nav-link active" th:href="@{/adminPage}">Page admin</a></li>
+                <!--L'affichage dépend du profil de la personne connecté d'où le "role"-->
                 <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/exit}">Déconnexion</a></li>
 
             </ul>
@@ -30,12 +31,15 @@
 </nav>
 
 <div id="wrapper" th:if="${c.role == 1}">
+    <!--L'affichage dépend du profil de la personne connecté d'où le "role"-->
+
 
     <div id="promo">
     <div class="jumbotron">
         <h1>Vos programmes</h1>
 
         <table class="table table-bordered table-striped table-condensed">
+            <!--C'est dans ce tableau qu'on affiche les différents programmes de l'utilsiateur-->
             <tr>
                 <th>Programme</th>
                 <th>Description</th>
@@ -66,12 +70,12 @@
         &nbsp;
     <p>Bonjour <b th:text="${c.firstName}"></b>, voici vos informations personelles :</p>
     <table class="table table-bordered table-striped table-condensed">
+        <!-- Affichage des informations de l'utilsiateur  -->
         <tr>
             <th>Prénom</th>
             <th>Nom de famille</th>
             <th>E-mail</th>
             <th>Mot de passe</th>
-            <!-- TODO : le cacher par des points et l'afficher avec un bouton -->
             <th>Date de naissance</th>
             <th>Sexe</th>
         </tr>
@@ -87,6 +91,7 @@
         <div class="text-right">
             <a th:href="@{/modifyCustomer(mail = ${c.mail})}">
                 <button class="btn btn-lg btn-primary">Modifier informations</button>
+                <!--  Bouton pour que l'utilisateur modifie ses informations personelles -->
             </a>
 
         </div>
@@ -95,11 +100,13 @@
 </div>
 
 <div id="wrapper2" th:if="${c.role == 2}">
+    <!--  Affichage pour l'admin -->
     <div id="promo2">
         <div class="jumbotron" style="max-width:1200px">
             <h1>Voici la liste des personnes inscrites aux programmes : </h1>
             &nbsp;
              <table class="table table-bordered table-striped table-condensed">
+                 <!--  Liste des personnes inscrites dans un tableau -->
                 <tr>
                     <th>id</th>
                     <th>firstName</th>
