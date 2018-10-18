@@ -16,7 +16,7 @@
 <body>
 
 <nav class="navbar navbar-light navbar-expand-md">
-    <div class="container-fluid"><a class="navbar-brand" th:href="@{/}"><strong>GymTonic</strong></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="container-fluid"><a class="navbar-brand"><strong>GymTonic</strong></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse"
              id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
@@ -70,8 +70,6 @@
             <th>Prénom</th>
             <th>Nom de famille</th>
             <th>E-mail</th>
-            <th>Mot de passe</th>
-            <!-- TODO : le cacher par des points et l'afficher avec un bouton -->
             <th>Date de naissance</th>
             <th>Sexe</th>
         </tr>
@@ -79,7 +77,6 @@
             <td th:text="${c.firstName}"></td>
             <td th:text="${c.lastName}"></td>
             <td th:text="${c.mail}"></td>
-            <td th:text="${c.password}"></td>
             <td th:text="${c.date}"></td>
             <td th:text="${c.gender}"></td>
         </tr>
@@ -96,12 +93,11 @@
 
 <div id="wrapper2" th:if="${c.role == 2}">
     <div id="promo2">
-        <div class="jumbotron" style="max-width:1200px" align="center">
-            <h1>Voici la liste des personnes inscrites aux programmes : </h1>
+        <div class="jumbotron" style="max-width:1200px">
+            <h1>Voici la liste des personnes inscrites : </h1>
             &nbsp;
              <table class="table table-bordered table-striped table-condensed">
                 <tr>
-                    <th>id</th>
                     <th>firstName</th>
                     <th>lastName</th>
                     <th>mail</th>

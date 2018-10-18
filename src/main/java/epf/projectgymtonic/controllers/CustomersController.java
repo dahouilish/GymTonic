@@ -104,8 +104,6 @@ public class CustomersController {
         // Test login : if mail and password do match
         if (currentMail.equals(email) && currentPassword.equals(password)) {
             if (currentCustomer.getRole() == 1 || currentCustomer.getRole() == 2) {
-                //Program program = programsDao.selectTemporaryProgram();
-                //program.setMail(LoginForm.getMail());
                 saveLogService.saveNewCustomer(date, "Connexion", currentCustomer);
                 return "redirect:/customerPage";
             }else{
@@ -146,24 +144,25 @@ public class CustomersController {
             displayServices.displayAlertMessage("Erreur","Vous tentez d'accéder à une page non autorisée");
             return "redirect:/login";
         }
-        model.addAttribute("fast", false);
+        model.addAttribute("fast", false); // fast = false
         return "new_program";
     }
 
     @PostMapping("/newProgram")
     public String addProgram(Program program, Model model) {
-
+        // fastProgram = false
         return programService.newProgram(programAttributionDao, gymTonicProgramDao, program, false, programDao);
     }
 
     @GetMapping("/fastProgram")
     public String addFastProgramForm(Model model) {
-        model.addAttribute("fast", true);
+        model.addAttribute("fast", true); // fast = true
         return "new_program";
     }
 
     @PostMapping("/fastProgram")
     public String addFastProgram(Program program, Model model) {
+        // fastProgram = true
         return programService.newProgram(programAttributionDao, gymTonicProgramDao, program, true, programDao);
     }
 

@@ -20,24 +20,27 @@ public class ProgramService {
     @NotNull
     public String newProgram(ProgramAttributionDAO programAttributionDao, GymTonicProgramDAO gymTonicProgramDao, Program program, Boolean fastProgram, ProgramDAO programDao) {
         if (!fastProgram) {
+            // Sets the program's mail
             program.setMail(LoginForm.getMail());
         }
+        // Sets the program's IMC
         program.setImc(program.getWeight() / (program.getHeight() * program.getHeight())); //IMC = Poids / Taille^2
 
-        String choice1 = "";
-        String choice2 = "";
-        String choice3 = "";
+        String choice1 = ""; // Choice A
+        String choice2 = ""; // Choice B
+        String choice3 = ""; // Choice C
 
-        //System.out.println("yes 3");
+        // A1 : underweight person
         if (program.getImc() < 18.5F) {
             choice1 = "A1";
-        }
+        } // A2 : standard weight
         else if ((program.getImc() >= 18.5F) & (program.getImc() <= 25.0F)) {
             choice1 = "A2";
-        }
+        } // A3 : overweight person
         else if (program.getImc() > 25.0F) {
             choice1 = "A3";
         }
+        // B : relative to the frequence of the user's physical activities
         switch (program.getFrequence()) {
             case "0 fois":
                 choice2 = "B1";
@@ -49,7 +52,7 @@ public class ProgramService {
                 choice2 = "B3";
                 break;
         }
-
+        // C : relative to the user's objective
         switch (program.getGoal()) {
             case "Prise de masse":
                 choice3 = "C1";
@@ -62,19 +65,24 @@ public class ProgramService {
                 break;
         }
 
+        // Sets the program's chain of choices. chainOfChoices is the concatenation of A & B & C
         program.setChainOfChoices(choice1 + "_" + choice2 + "_" + choice3);
 
+        // Finds the matching between the chain of choices and our programs
         ProgramAttribution programAttribution = programAttributionDao.findProgramByChainOfChoices(program.getChainOfChoices());
+        // Finds the GymTonic program by using the code
         GymTonicProgram gymTonicProgram = gymTonicProgramDao.findProgramByCode(programAttribution.getCode());
 
-        program.setProposedProgram(gymTonicProgram.getName());
-        program.setDescription(gymTonicProgram.getDescription());
-        program.setImage(gymTonicProgram.getImage());
+        program.setProposedProgram(gymTonicProgram.getName()); // Sets the program's name
+        program.setDescription(gymTonicProgram.getDescription()); // Sets the program's description
+        program.setImage(gymTonicProgram.getImage()); // Sets the program's picture
 
         // If the user is already registered
         if (!fastProgram) {
+            // Display to the user the result of the attribution
             displayServices.displayAlertMessage("Votre programme", gymTonicProgram.getName() + "\n\nRetrouvez les détails du programme dans votre Page perso");
         } else {
+            // In the case of a fast program : display the result and tells the user to sign up in order to save it
             displayServices.displayAlertMessage("Votre programme", gymTonicProgram.getName()  + "\n\nRetrouvez les détails du programme dans votre Page perso, \n" +
                     "Connectez-vous pour pouvoir enregistrer vos programmes.");
         }
@@ -82,8 +90,6 @@ public class ProgramService {
         programDao.save(program);
 
         if (fastProgram) {
-            //programDao.deleteTemporaryPrograms();
-            //program.setMail("temporaryUser@gymtonic.com");
             return "redirect:/";
         } else {
             return "redirect:/customerPage";
