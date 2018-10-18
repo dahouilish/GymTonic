@@ -11,9 +11,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 
 /**
- * TODO class details.
- *
- * @author Loïc Ortola on 10/09/2018
+ * @author David Bernadet, Romain Cogen, Lancelot Deguerre on 10/09/2018
  */
 @Service
 @Repository

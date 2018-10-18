@@ -8,9 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 /**
- * TODO class details.
- *
- * @author Loïc Ortola on 10/09/2018
+ * @author David Bernadet, Romain Cogen, Lancelot Deguerre on 10/09/2018
  */
 @Service
 @Repository
