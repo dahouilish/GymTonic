@@ -4,7 +4,7 @@ Notre site permet la création de programmes de sport personnalisés en fonction
 et des objectifs de l'utilisateur. Il s'agit donc d'attribuer un programme, parmi ceux qui sont stockés dans
 notre base de données, selon les réponses de l'utilisateur à un formulaire qui lui est proposé.
 
-Description des fonctions Front-office implémentées :
+Description des fonctions implémentées :
 
 ----------------------------------------------------------
 
