@@ -8,7 +8,7 @@ Description des fonctions implémentées :
 
 ----------------------------------------------------------
 
-1) Page d'acceuil. 
+1) Page d'accueil. 
 Elle permet la navigation entre les différentes fonctions du site, grâce aux onglets du bandeau de haut de page premièrement.
 Celui ci permet d'être redirigier vers la page d'inscription d'un nouvel utilisateur, ou la page de connexion. Le "logo"
 du site en haut à gauche permet de revenrir à la page d'accueil.
